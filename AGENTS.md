@@ -10,6 +10,12 @@ This repository is a static Sphinx/MyST site for interactive course notes.
 - Keep shared styling in `docs/_static/css/`.
 - Keep browser-side interactive code in `docs/_static/js/`.
 
+## Syllabus Mapping File Policy
+
+- Treat `syllabus/modal_analysis_topic_example_map.md` as a read-only reference.
+- Do not modify `syllabus/modal_analysis_topic_example_map.md` during notes implementation work.
+- Use it as guidance for topic/example alignment when drafting or updating notes.
+
 ## Avoid Raw HTML in Chapters
 
 - Do not put large raw HTML, inline scripts, or implementation logic directly
