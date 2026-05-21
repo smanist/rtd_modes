@@ -2,6 +2,8 @@
 
 This repository is a static Sphinx/MyST site for interactive course notes.
 
+This is a graduate-level course for modal analysis of nonlinear dynamical systems.
+
 ## Documentation Structure
 
 - Keep chapter content in Markdown under `docs/chapters/`.
@@ -15,6 +17,12 @@ This repository is a static Sphinx/MyST site for interactive course notes.
 - Treat `syllabus/modal_analysis_topic_example_map.md` as a read-only reference.
 - Do not modify `syllabus/modal_analysis_topic_example_map.md` during notes implementation work.
 - Use it as guidance for topic/example alignment when drafting or updating notes.
+
+## Temporary Implementation Scope
+
+- At this stage, implement only theory content and hand-derivable examples.
+- Do not implement recurring engineering examples yet.
+- Do not implement interactive examples yet.
 
 ## Avoid Raw HTML in Chapters
 
