@@ -1,4 +1,4 @@
-# Course Notes
+# Interactive Notes
 
 These notes are built with Sphinx and MyST Markdown. Chapters can use ordinary
 Markdown, Sphinx cross-references, figures, and LaTeX equations.

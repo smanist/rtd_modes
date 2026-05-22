@@ -1,6 +1,6 @@
 # Agent Guidelines
 
-This repository is a static Sphinx/MyST site for interactive course notes.
+This repository is a static Sphinx/MyST site for interactive notes.
 
 This is a graduate-level course for modal analysis of nonlinear dynamical systems.
 

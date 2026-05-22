@@ -1,6 +1,6 @@
-# Course Notes Skeleton
+# Interactive Notes Skeleton
 
-A reusable static Sphinx/MyST starter for course notes with:
+A reusable static Sphinx/MyST starter for interactive notes with:
 
 - Markdown chapters in `docs/chapters/`
 - MathJax macros configured in `docs/conf.py`
