@@ -16,7 +16,6 @@ chapters/06_floquet_analysis
 chapters/07_lyapunov_exponents_and_covariant_lyapunov_vectors
 chapters/09_pod_kl_and_snapshot_methods
 chapters/11_koopman_spectral_theory
-chapters/getting-started
 chapters/interactive-example
 ```
 
