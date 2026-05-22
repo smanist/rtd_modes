@@ -6,6 +6,7 @@
     makeRangeControl,
     numberFromDataset,
     registerExample,
+    renderPlotly,
   } = window.CourseInteractives;
 
   function sampleTransientEnergy({ coupling, timeMax, steps }) {
@@ -67,7 +68,8 @@
         `Peak energy ${data.peakEnergy.toFixed(3)} at t = ${data.peakTime.toFixed(2)}; ` +
         `growth factor ${growthFactor.toFixed(3)}.`;
 
-      plotly.react(
+      renderPlotly(
+        plotly,
         plot,
         [
           {
@@ -111,8 +113,7 @@
               ay: -28,
             },
           ],
-        },
-        { responsive: true, displayModeBar: false }
+        }
       );
     }
 

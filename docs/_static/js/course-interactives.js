@@ -79,6 +79,32 @@
     return Number.isFinite(value) ? value : fallback;
   }
 
+  function resizePlotlyPlot(plot, plotly) {
+    if (!plot.isConnected || !plotly.Plots || !plotly.Plots.resize) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => plotly.Plots.resize(plot));
+  }
+
+  function renderPlotly(plotly, plot, data, layout, config = {}) {
+    return plotly
+      .react(
+        plot,
+        data,
+        {
+          autosize: true,
+          ...layout,
+        },
+        {
+          responsive: true,
+          displayModeBar: false,
+          ...config,
+        }
+      )
+      .then(() => resizePlotlyPlot(plot, plotly));
+  }
+
   function makeRangeControl({ label, min, max, step, value, onInput }) {
     const wrapper = document.createElement("div");
     wrapper.className = "course-interactive__control";
@@ -261,6 +287,8 @@
     makeSelectControl,
     numberFromDataset,
     registerExample,
+    renderPlotly,
+    resizePlotlyPlot,
   };
 
   document.addEventListener("DOMContentLoaded", () => {

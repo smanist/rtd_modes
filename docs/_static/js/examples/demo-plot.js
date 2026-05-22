@@ -6,6 +6,7 @@
     makeRangeControl,
     numberFromDataset,
     registerExample,
+    renderPlotly,
   } = window.CourseInteractives;
 
   function sampleSine({ frequency, amplitude }) {
@@ -39,7 +40,8 @@
 
     function draw() {
       const data = sampleSine({ frequency, amplitude });
-      plotly.react(
+      renderPlotly(
+        plotly,
         plot,
         [
           {
@@ -57,8 +59,7 @@
           paper_bgcolor: "rgba(0,0,0,0)",
           plot_bgcolor: "rgba(0,0,0,0)",
           showlegend: false,
-        },
-        { responsive: true, displayModeBar: false }
+        }
       );
     }
 
