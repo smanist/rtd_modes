@@ -12,17 +12,72 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 - Keep shared styling in `docs/_static/css/`.
 - Keep browser-side interactive code in `docs/_static/js/`.
 
-## Syllabus Mapping File Policy
+## Syllabus File Policy
 
-- Treat `syllabus/modal_analysis_topic_example_map.md` as a read-only reference.
-- Do not modify `syllabus/modal_analysis_topic_example_map.md` during notes implementation work.
-- Use it as guidance for topic/example alignment when drafting or updating notes.
+- Treat all files under `syllabus/` as read-only reference material.
+- Do not modify files under `syllabus/` during notes implementation work.
+- Use `syllabus/modal_analysis_topic_example_map.md` as guidance for
+  topic/example alignment when drafting or updating notes.
 
 ## Temporary Implementation Scope
 
 - At this stage, implement only theory content and hand-derivable examples.
 - Do not implement recurring engineering examples yet.
 - Do not implement interactive examples yet.
+
+## Notation Policy and Quick Reference
+
+- Notation in notes should follow `syllabus/notation_convention.md`.
+
+### Rule of Thumb
+
+> Plain italic symbols describe mathematical objects in the model.
+> Bold symbols describe sampled numerical data or assembled arrays.
+> Calligraphic symbols describe operators and spaces.
+> Blackboard-bold symbols describe standard number spaces or expectations.
+> Subscripts index components, time steps, or modes; parenthesized
+> superscripts index realizations or labels.
+
+### Compact Notation Table
+
+| Quantity                | Recommended notation |
+| ----------------------- | -------------------- |
+| continuous-time state   | `(x(t))`             |
+| discrete-time state     | `(x_k)`              |
+| numerical snapshot      | `(\mathbf{x}_k)`    |
+| component of state      | `(x_i)`              |
+| snapshot matrix         | `(\mathbf{X})`      |
+| shifted snapshot matrix | `(\mathbf{Y})`      |
+| input/output            | `(u(t), y(t))`       |
+| state matrix            | `(A)`                |
+| input/output matrices   | `(B,C,D)`            |
+| mass/damping/stiffness  | `(M,C,K)`            |
+| mode shape/eigenvector  | `(\phi_j)`          |
+| adjoint mode            | `(\psi_j)`          |
+| eigenvalue              | `(\lambda_j)`       |
+| natural frequency       | `(\omega_j)`        |
+| modal coordinate        | `(\eta_j(t))`       |
+| modal basis             | `(\Phi_r)` or `(V_r)` |
+| reduction basis         | `(V_r)`              |
+| test basis              | `(W_r)`              |
+| reduced state           | `(a(t))`             |
+| Koopman operator        | `(\mathcal{K}^t)`   |
+| Koopman generator       | `(\mathcal{L})`     |
+| observable              | `(g)`                |
+| Koopman eigenfunction   | `(\varphi_j)`       |
+| state-transition matrix | `(\Phi(t,t_0))`     |
+| monodromy matrix        | `(M_F)`              |
+| Floquet multiplier      | `(\rho_j)`          |
+| Floquet exponent        | `(\nu_j)`           |
+| Lyapunov exponent       | `(\chi_j)`          |
+| CLV                     | `(\ell_j(t))`       |
+| covariance              | `(C_x)`              |
+| cross-spectral density  | `(S_x(\omega))`     |
+| resolvent               | `(R(i\omega;A))`    |
+| Hilbert space           | `(\mathcal{H})`     |
+| manifold                | `(\mathcal{M})`     |
+| invariant measure       | `(\mu)`             |
+| expectation             | `(\mathbb{E})`      |
 
 ## Avoid Raw HTML in Chapters
 
