@@ -8,6 +8,7 @@ Markdown, Sphinx cross-references, figures, and LaTeX equations.
 :caption: Contents
 
 chapters/01_model_taxonomy
+chapters/03_non_normality_transient_growth_and_pseudospectra
 chapters/getting-started
 chapters/interactive-example
 ```
