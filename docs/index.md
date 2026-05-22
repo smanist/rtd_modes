@@ -18,6 +18,7 @@ chapters/08_model_truncation_and_reduced_order_modeling
 chapters/09_pod_kl_and_snapshot_methods
 chapters/10_dynamic_mode_decomposition_and_variants
 chapters/11_koopman_spectral_theory
+chapters/12_spod_and_resolvent_analysis
 chapters/interactive-example
 ```
 
