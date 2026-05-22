@@ -11,6 +11,7 @@ chapters/01_model_taxonomy
 chapters/02_linear_autonomous_systems
 chapters/03_non_normality_transient_growth_and_pseudospectra
 chapters/04_second_order_mechanical_modal_analysis
+chapters/05_linear_time_varying_systems
 chapters/getting-started
 chapters/interactive-example
 ```
