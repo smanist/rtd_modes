@@ -104,8 +104,18 @@ div.bodywrapper {
   background: var(--color-background-secondary, #f8f9fb);
   border: 1px solid var(--color-background-border, #d8dee9);
   border-radius: 8px;
+  box-sizing: border-box;
   margin: 1.5rem 0;
+  max-width: 100%;
+  overflow-x: auto;
   padding: 1rem;
+  width: 100%;
+}
+
+.course-interactive *,
+.course-interactive *::before,
+.course-interactive *::after {
+  box-sizing: border-box;
 }
 
 .course-interactive__header {
@@ -126,7 +136,7 @@ div.bodywrapper {
 .course-interactive__controls {
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
   margin-bottom: 1rem;
 }
 
@@ -149,8 +159,10 @@ div.bodywrapper {
   border: 1px solid var(--color-background-border, #d8dee9);
   border-radius: 4px;
   font: inherit;
+  min-width: 0;
   max-width: 12rem;
   padding: 0.35rem 0.45rem;
+  width: 100%;
 }
 
 .course-interactive__checkbox-label {
@@ -183,6 +195,19 @@ div.bodywrapper {
 
 .course-interactive__plot {
   min-height: 22rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.course-interactive__plot .js-plotly-plot,
+.course-interactive__plot .plot-container,
+.course-interactive__plot .svg-container {
+  max-width: 100%;
+  width: 100% !important;
+}
+
+.course-interactive__plot .main-svg {
+  max-width: 100%;
 }
 
 .course-interactive__plot--large {

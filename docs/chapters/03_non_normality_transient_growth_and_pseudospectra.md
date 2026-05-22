@@ -7,14 +7,9 @@ constructively, small perturbations can move eigenvalues substantially, and
 harmonic forcing can be strongly amplified even though every eigenvalue lies in
 the stable half-plane.
 
-:::{container} interactive-spec
-:name: interactive-spec-transient_energy
+:::{container} course-interactive course-interactive-chapter3-transient-energy
 
-Visualize the transient energy in the hand-derivable example.
-Use the style shown in `pltEnergy` in the reference.  Use a slider to
-control the system parameter.
-
-Reference implementation: `DS_Nonnormal.ipynb` and `ds_utils.py`
+Interactive example loading...
 :::
 
 This chapter develops those ideas with a single hand-derivable example,
