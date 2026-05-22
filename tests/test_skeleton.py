@@ -26,7 +26,11 @@ def test_no_login_gate_assets_or_placeholders() -> None:
 
 
 def test_index_toctree_entries_exist() -> None:
-    missing = [entry for entry in index_toctree_entries() if not (DOCS_DIR / f"{entry}.md").is_file()]
+    missing = [
+        entry
+        for entry in index_toctree_entries()
+        if not (DOCS_DIR / f"{entry}.md").is_file()
+    ]
 
     assert missing == []
 

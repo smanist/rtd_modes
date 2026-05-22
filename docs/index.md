@@ -8,6 +8,7 @@ Markdown, Sphinx cross-references, figures, and LaTeX equations.
 :caption: Contents
 
 chapters/01_model_taxonomy
+chapters/04_second_order_mechanical_modal_analysis
 chapters/getting-started
 chapters/interactive-example
 ```
