@@ -185,6 +185,10 @@ maintaining existing interactive infrastructure.
   placeholder element and reads configuration from `data-*` attributes.
 - Avoid duplicating CDN loading logic across example files. Use shared helpers
   for Plotly, Pyodide, p5.js, and JSXGraph.
+- For Plotly examples, use the shared `renderPlotly` helper from
+  `window.CourseInteractives` rather than calling `Plotly.react` directly. This
+  keeps generated Plotly components resized to the main text column and prevents
+  plots from overflowing or being clipped by the interactive container.
 - Recompute examples from user inputs in the browser only. Do not introduce a
   backend dependency.
 
