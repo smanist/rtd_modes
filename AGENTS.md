@@ -22,12 +22,17 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 ## Temporary Implementation Scope
 
 - At this stage, implement only theory content and hand-derivable examples.
-- Do not implement recurring engineering examples yet.
-- Do not implement interactive examples yet.
+- Do not add recurring engineering examples yet.
+- Do not add new interactive examples to course chapters yet.
+- Existing interactive infrastructure may be maintained or fixed when explicitly
+  requested.
 
 ## Notation Policy and Quick Reference
 
 - Notation in notes should follow `syllabus/notation_convention.md`.
+- Parentheses in the notation table indicate displayed examples. In chapter
+  prose, write inline math using MyST/Markdown math delimiters such as
+  `$x(t)$`, `$x_k$`, and `$\mathbf{x}_k$`.
 
 ### Rule of Thumb
 
@@ -88,7 +93,9 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 - Prefer MyST containers with identifying classes:
 
   ```md
-  :::{container} course-interactive course-interactive-demo
+  :::{container} course-interactive
+  :data-example: demo-plot
+
   Interactive example loading...
   :::
   ```
@@ -125,10 +132,15 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 - If the sample uses level-1 headings for sections, demote them one level after
   adding the page title. This prevents Sphinx sidebars and toctrees from
   treating each section as a separate page-level entry.
+- When adding a chapter, add it to the `docs/index.md` toctree unless it is
+  intentionally hidden.
 - After conversion, run a fresh Sphinx build when navigation, labels, or math
   parsing changed.
 
 ## Modular Interactive Examples
+
+These conventions apply when interactive work is explicitly in scope, or when
+maintaining existing interactive infrastructure.
 
 - Keep interactive examples as individual JavaScript files whenever possible.
 - Use one file per example or closely related example family.
@@ -159,7 +171,9 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 
 ## Verification
 
-- Run `sphinx-build -b html docs docs/_build/html` after documentation or
-  static asset changes.
+- Run `make html` after documentation or static asset changes. This uses a
+  fresh Sphinx build through `sphinx-build -E -b html docs docs/_build/html`.
+- Run `pytest` when changing `docs/conf.py`, `docs/index.md`, registered
+  example scripts, or test-covered infrastructure.
 - For interactive examples, verify at least one rendered page in a browser when
   behavior changes.
