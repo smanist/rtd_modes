@@ -13,6 +13,7 @@ chapters/03_non_normality_transient_growth_and_pseudospectra
 chapters/04_second_order_mechanical_modal_analysis
 chapters/05_linear_time_varying_systems
 chapters/06_floquet_analysis
+chapters/11_koopman_spectral_theory
 chapters/getting-started
 chapters/interactive-example
 ```
