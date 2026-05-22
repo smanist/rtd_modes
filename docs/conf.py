@@ -1,4 +1,4 @@
-project = "Course Notes"
+project = "Interactive Notes"
 author = "Course Staff"
 
 extensions = [
@@ -54,6 +54,6 @@ mathjax3_config = {
 }
 
 html_theme_options = {
-    "description": "Static Sphinx/MyST notes with browser-side examples",
+    "description": "Modal Analysis of Nonlinear Dynamical Systems",
     "fixed_sidebar": True,
 }
