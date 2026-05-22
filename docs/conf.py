@@ -1,4 +1,4 @@
-project = "Interactive Notes"
+project = "Course Notes"
 author = "Course Staff"
 
 extensions = [
