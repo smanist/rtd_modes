@@ -16,6 +16,7 @@ chapters/06_floquet_analysis
 chapters/07_lyapunov_exponents_and_covariant_lyapunov_vectors
 chapters/08_model_truncation_and_reduced_order_modeling
 chapters/09_pod_kl_and_snapshot_methods
+chapters/10_dynamic_mode_decomposition_and_variants
 chapters/11_koopman_spectral_theory
 chapters/interactive-example
 ```
