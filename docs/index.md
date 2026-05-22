@@ -9,6 +9,7 @@ Markdown, Sphinx cross-references, figures, and LaTeX equations.
 
 chapters/01_model_taxonomy
 chapters/02_linear_autonomous_systems
+chapters/04_second_order_mechanical_modal_analysis
 chapters/getting-started
 chapters/interactive-example
 ```
