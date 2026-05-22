@@ -3,46 +3,92 @@
 
   const {
     loadPlotly,
+    loadPyodideRuntime,
     makeRangeControl,
     numberFromDataset,
     registerExample,
     renderPlotly,
+    staticAssetUrl,
   } = window.CourseInteractives;
 
-  function sampleTransientEnergy({ coupling, timeMax, steps }) {
-    const time = [];
-    const energy = [];
-    let peakIndex = 0;
+  let transientEnergyPromise = null;
 
-    for (let i = 0; i <= steps; i += 1) {
-      const t = (timeMax * i) / steps;
-      const exp1 = Math.exp(-t);
-      const exp2 = Math.exp(-2 * t);
-      const x1 = coupling * (exp1 - exp2);
-      const x2 = exp2;
-      const value = x1 * x1 + x2 * x2;
+  function loadError(step, error) {
+    const message = error && error.message ? error.message : String(error);
+    const wrapped = new Error(`${step}: ${message}`);
+    wrapped.cause = error;
+    wrapped.userMessage = `This interactive example could not be loaded. ${step}: ${message}`;
+    return wrapped;
+  }
 
-      time.push(t);
-      energy.push(value);
+  async function loadTransientEnergyFunction() {
+    if (!transientEnergyPromise) {
+      transientEnergyPromise = (async () => {
+        let pyodide;
+        try {
+          pyodide = await loadPyodideRuntime();
+        } catch (error) {
+          throw loadError("Pyodide runtime failed to load", error);
+        }
 
-      if (value > energy[peakIndex]) {
-        peakIndex = i;
-      }
+        try {
+          await pyodide.loadPackage("numpy");
+        } catch (error) {
+          throw loadError("NumPy package failed to load", error);
+        }
+
+        let response;
+        const sourceUrl = staticAssetUrl("py/examples/ch03_transient_energy.py");
+        try {
+          response = await fetch(sourceUrl);
+        } catch (error) {
+          throw loadError(`Python source fetch failed (${sourceUrl})`, error);
+        }
+        if (!response.ok) {
+          throw loadError(
+            "Python source fetch failed",
+            new Error(`${response.status} ${response.statusText}: ${sourceUrl}`)
+          );
+        }
+
+        try {
+          pyodide.runPython(await response.text());
+          return pyodide.globals.get("transient_energy");
+        } catch (error) {
+          throw loadError("Python source execution failed", error);
+        }
+      })();
     }
 
-    return {
-      time,
-      energy,
-      peakEnergy: energy[peakIndex],
-      peakTime: time[peakIndex],
-    };
+    return transientEnergyPromise;
+  }
+
+  function pyProxyToObject(proxy) {
+    try {
+      return proxy.toJs({ dict_converter: Object.fromEntries });
+    } finally {
+      proxy.destroy();
+    }
+  }
+
+  function computeTransientEnergy(transientEnergy, coupling, timeMax, steps) {
+    try {
+      return pyProxyToObject(transientEnergy(coupling, timeMax, steps));
+    } catch (error) {
+      throw loadError("Python calculation failed", error);
+    }
   }
 
   async function initChapter3TransientEnergy(element) {
-    const plotly = await loadPlotly();
+    const [plotly, transientEnergy] = await Promise.all([
+      loadPlotly(),
+      loadTransientEnergyFunction(),
+    ]);
     let coupling = numberFromDataset(element, "k", 8);
     const timeMax = numberFromDataset(element, "timeMax", 6);
     const steps = 320;
+    let drawRequest = 0;
+    let isMounted = false;
 
     const header = document.createElement("div");
     const title = document.createElement("p");
@@ -57,15 +103,20 @@
     readout.className = "course-interactive__readout";
     plot.className = "course-interactive__plot";
 
-    function draw() {
-      const data = sampleTransientEnergy({ coupling, timeMax, steps });
+    async function draw() {
+      const requestId = drawRequest += 1;
+      const data = computeTransientEnergy(transientEnergy, coupling, timeMax, steps);
+      if (requestId !== drawRequest) {
+        return;
+      }
+
       const peakHalfWidth = Math.max(0.15, timeMax / 18);
-      const peakLeft = Math.max(0, data.peakTime - peakHalfWidth);
-      const peakRight = Math.min(timeMax, data.peakTime + peakHalfWidth);
-      const growthFactor = data.peakEnergy / data.energy[0];
+      const peakLeft = Math.max(0, data.peak_time - peakHalfWidth);
+      const peakRight = Math.min(timeMax, data.peak_time + peakHalfWidth);
+      const growthFactor = data.peak_energy / data.energy[0];
 
       readout.textContent =
-        `Peak energy ${data.peakEnergy.toFixed(3)} at t = ${data.peakTime.toFixed(2)}; ` +
+        `Peak energy ${data.peak_energy.toFixed(3)} at t = ${data.peak_time.toFixed(2)}; ` +
         `growth factor ${growthFactor.toFixed(3)}.`;
 
       renderPlotly(
@@ -81,15 +132,15 @@
           },
           {
             x: [peakLeft, peakRight],
-            y: [data.peakEnergy, data.peakEnergy],
+            y: [data.peak_energy, data.peak_energy],
             mode: "lines",
             line: { color: "#bc4b51", width: 6 },
             hoverinfo: "skip",
             showlegend: false,
           },
           {
-            x: [data.peakTime],
-            y: [data.peakEnergy],
+            x: [data.peak_time],
+            y: [data.peak_energy],
             mode: "markers",
             marker: { color: "#bc4b51", size: 9 },
             name: "Peak",
@@ -104,8 +155,8 @@
           legend: { orientation: "h", x: 0, y: 1.12 },
           annotations: [
             {
-              x: data.peakTime,
-              y: data.peakEnergy,
+              x: data.peak_time,
+              y: data.peak_energy,
               text: "Peak transient energy",
               showarrow: true,
               arrowhead: 2,
@@ -126,14 +177,22 @@
         value: coupling,
         onInput: (value) => {
           coupling = value;
-          draw();
+          if (!isMounted) {
+            return;
+          }
+
+          draw().catch((error) => {
+            readout.textContent = "The Python calculation could not be updated.";
+            console.error(error);
+          });
         },
       })
     );
 
     header.append(title);
     element.replaceChildren(header, controls, readout, plot);
-    draw();
+    isMounted = true;
+    await draw();
   }
 
   registerExample("chapter3-transient-energy", initChapter3TransientEnergy, {

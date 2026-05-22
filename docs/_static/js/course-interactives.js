@@ -13,6 +13,26 @@
   const examples = new Map();
   let controlIdCounter = 0;
   let pyodidePromise = null;
+  let staticBaseUrl = null;
+
+  function staticAssetUrl(path) {
+    if (!staticBaseUrl) {
+      const staticScript =
+        document.currentScript ||
+        [...document.scripts].find((script) => script.src.includes("/_static/"));
+
+      if (staticScript && staticScript.src.includes("/_static/")) {
+        staticBaseUrl = staticScript.src.slice(
+          0,
+          staticScript.src.indexOf("/_static/") + "/_static/".length
+        );
+      } else {
+        staticBaseUrl = new URL("_static/", document.baseURI).href;
+      }
+    }
+
+    return new URL(path.replace(/^\/+/, ""), staticBaseUrl).href;
+  }
 
   function loadScript(src) {
     if (loadedScripts.has(src)) {
@@ -271,7 +291,11 @@
 
       element.textContent = `Unknown interactive example: ${element.dataset.example || "none"}`;
     } catch (error) {
-      element.textContent = "This interactive example could not be loaded.";
+      const message =
+        error && error.userMessage
+          ? error.userMessage
+          : "This interactive example could not be loaded.";
+      element.textContent = message;
       console.error(error);
     }
   }
@@ -289,6 +313,7 @@
     registerExample,
     renderPlotly,
     resizePlotlyPlot,
+    staticAssetUrl,
   };
 
   document.addEventListener("DOMContentLoaded", () => {
