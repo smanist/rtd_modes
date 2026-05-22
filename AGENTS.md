@@ -175,9 +175,11 @@ maintaining existing interactive infrastructure.
 
 ## Verification
 
-- Run `make html` after documentation or static asset changes. This uses a
-  fresh Sphinx build through `sphinx-build -E -b html docs docs/_build/html`.
-- Run `pytest` when changing `docs/conf.py`, `docs/index.md`, registered
-  example scripts, or test-covered infrastructure.
+- Run `make check` before handing off any change that adds or edits chapters,
+  updates `docs/index.md`, changes Sphinx configuration, or changes static site
+  assets. This is the required pre-review check for documentation work and runs
+  both the fresh Sphinx build and the test suite.
+- Use `make html` for an intermediate documentation-only check while drafting.
+  The handoff check is still `make check`.
 - For interactive examples, verify at least one rendered page in a browser when
   behavior changes.
