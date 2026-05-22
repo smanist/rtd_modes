@@ -2,7 +2,7 @@
 
 This outline pairs each course topic with an accessible hand-derivable example, a recurring engineering-relevant example, and the key concepts students should learn.
 
-## Week 1 — Modal Taxonomy
+## Chapter 1 — Modal Taxonomy
 
 **Hand-derivable example:** 2D oscillator  
 **Recurring engineering example:** aircraft modes, building modes, flow modes, thermal modes
@@ -18,7 +18,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 2 — Linear Autonomous Systems
+## Chapter 2 — Linear Autonomous Systems
 
 **Hand-derivable example:** 2-DOF oscillator  
 **Recurring engineering example:** aircraft flight dynamics model, aeroelastic model
@@ -36,7 +36,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 3 — Non-normality, Transient Growth, and Pseudospectra
+## Chapter 3 — Non-normality, Transient Growth, and Pseudospectra
 
 **Hand-derivable example:** \(2\times2\) non-normal upper-triangular matrix  
 **Recurring engineering example:** Ginzburg-Landau model, aeroelastic bifurcation
@@ -54,7 +54,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 4 — Second-Order Mechanical Modal Analysis
+## Chapter 4 — Second-Order Mechanical Modal Analysis
 
 **Hand-derivable example:** 2-DOF mass-spring-damper system  
 **Recurring engineering example:** beam vibration model
@@ -72,7 +72,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 5 — Linear Time-Varying Systems
+## Chapter 5 — Linear Time-Varying Systems
 
 **Hand-derivable example:** scalar LTV system or triangular \(A(t)\) system  
 **Recurring engineering example:** aircraft flight dynamics model
@@ -90,7 +90,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 6 — Floquet Analysis
+## Chapter 6 — Floquet Analysis
 
 **Hand-derivable example:** Mathieu equation or piecewise-periodic linear system  
 **Recurring engineering example:** spacecraft as a rotating beam
@@ -108,7 +108,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 7 — Lyapunov Exponents and Covariant Lyapunov Vectors
+## Chapter 7 — Lyapunov Exponents and Covariant Lyapunov Vectors
 
 **Hand-derivable example:** diagonal LTV system / Lorenz system for numerical exploration  
 **Recurring engineering example:** thermal convection
@@ -127,7 +127,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 8 — Model Truncation and Reduced-Order Modeling
+## Chapter 8 — Model Truncation and Reduced-Order Modeling
 
 **Hand-derivable example:** 2-state input-output system  
 **Recurring engineering example:** thermal diffusion and flexible structure
@@ -150,7 +150,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 9 — POD/KL and Snapshot Methods
+## Chapter 9 — POD/KL and Snapshot Methods
 
 **Hand-derivable example:** tiny snapshot matrix / heat equation  
 **Recurring engineering example:** Cylinder wake
@@ -170,7 +170,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 10 — Dynamic Mode Decomposition and Variants
+## Chapter 10 — Dynamic Mode Decomposition and Variants
 
 **Hand-derivable example:** rotation-decay data  
 **Recurring engineering example:** Cylinder wake
@@ -191,7 +191,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 11 — Koopman Spectral Theory
+## Chapter 11 — Koopman Spectral Theory
 
 **Hand-derivable example:** \(\dot x=-x\), circle rotation, translation  
 **Recurring engineering example:** pitch-plunge airfoil, Ginzburg-Landau PDE with tunable non-normality
@@ -215,7 +215,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 12 — SPOD and Resolvent Analysis
+## Chapter 12 — SPOD and Resolvent Analysis
 
 **Hand-derivable example:** forced scalar or 2D oscillator  
 **Recurring engineering example:** pitch-plunge airfoil, Ginzburg-Landau PDE with tunable non-normality
@@ -233,11 +233,11 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 - SVD of the resolvent.
 - Relationship between SPOD and resolvent modes under white or structured forcing.
 - Difference between data-statistical modes and input-output amplification modes.
-- Connections to non-normality and transient growth from Week 3.
+- Connections to non-normality and transient growth from Chapter 3.
 
 ---
 
-## Week 13 — Nonlinear Normal Modes
+## Chapter 13 — Nonlinear Normal Modes
 
 **Hand-derivable example:** Duffing oscillator or pendulum  
 **Recurring engineering example:** Nonlinear aeroelastic model
@@ -252,7 +252,7 @@ This outline pairs each course topic with an accessible hand-derivable example, 
 
 ---
 
-## Week 14 — Modes on Manifolds
+## Chapter 14 — Modes on Manifolds
 
 **Hand-derivable example:** Dynamics on S^1
 **Recurring engineering example:** Rigid body dynamics
