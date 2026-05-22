@@ -12,6 +12,26 @@
   } = window.CourseInteractives;
 
   let transientEnergyPromise = null;
+  const transientEnergySource = String.raw`import numpy as np
+
+
+def transient_energy(coupling=8.0, time_max=6.0, steps=320):
+    """Compute transient energy for the hand-derived 2x2 non-normal system."""
+    t = np.linspace(0.0, float(time_max), int(steps) + 1)
+    exp1 = np.exp(-t)
+    exp2 = np.exp(-2.0 * t)
+    x1 = float(coupling) * (exp1 - exp2)
+    x2 = exp2
+    energy = x1**2 + x2**2
+    peak_index = int(np.argmax(energy))
+
+    return {
+        "time": t.tolist(),
+        "energy": energy.tolist(),
+        "peak_time": float(t[peak_index]),
+        "peak_energy": float(energy[peak_index]),
+    }
+`;
 
   function loadError(step, error) {
     const message = error && error.message ? error.message : String(error);
@@ -19,6 +39,28 @@
     wrapped.cause = error;
     wrapped.userMessage = `This interactive example could not be loaded. ${step}: ${message}`;
     return wrapped;
+  }
+
+  async function loadPythonSource() {
+    const sourceUrl = staticAssetUrl("py/examples/ch03_transient_energy.py");
+    if (window.location.protocol === "file:") {
+      return transientEnergySource;
+    }
+
+    let response;
+    try {
+      response = await fetch(sourceUrl);
+    } catch (error) {
+      throw loadError(`Python source fetch failed (${sourceUrl})`, error);
+    }
+    if (!response.ok) {
+      throw loadError(
+        "Python source fetch failed",
+        new Error(`${response.status} ${response.statusText}: ${sourceUrl}`)
+      );
+    }
+
+    return response.text();
   }
 
   async function loadTransientEnergyFunction() {
@@ -37,22 +79,8 @@
           throw loadError("NumPy package failed to load", error);
         }
 
-        let response;
-        const sourceUrl = staticAssetUrl("py/examples/ch03_transient_energy.py");
         try {
-          response = await fetch(sourceUrl);
-        } catch (error) {
-          throw loadError(`Python source fetch failed (${sourceUrl})`, error);
-        }
-        if (!response.ok) {
-          throw loadError(
-            "Python source fetch failed",
-            new Error(`${response.status} ${response.statusText}: ${sourceUrl}`)
-          );
-        }
-
-        try {
-          pyodide.runPython(await response.text());
+          pyodide.runPython(await loadPythonSource());
           return pyodide.globals.get("transient_energy");
         } catch (error) {
           throw loadError("Python source execution failed", error);
@@ -98,7 +126,7 @@
 
     header.className = "course-interactive__header";
     title.className = "course-interactive__title";
-    title.textContent = "Transient Energy for x(0) = [0, 1]^T";
+    title.textContent = "Transient Energy for x(0) = [0, 1]";
     controls.className = "course-interactive__controls";
     readout.className = "course-interactive__readout";
     plot.className = "course-interactive__plot";
@@ -172,8 +200,8 @@
       makeRangeControl({
         label: "Coupling K",
         min: 0,
-        max: 16,
-        step: 0.5,
+        max: 10,
+        step: 0.2,
         value: coupling,
         onInput: (value) => {
           coupling = value;

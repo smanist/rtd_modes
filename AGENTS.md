@@ -185,6 +185,11 @@ maintaining existing interactive infrastructure.
   placeholder element and reads configuration from `data-*` attributes.
 - Avoid duplicating CDN loading logic across example files. Use shared helpers
   for Plotly, Pyodide, p5.js, and JSXGraph.
+- Pyodide-backed examples that need local Python source while opened with
+  `file://` should embed that source in the example JavaScript or otherwise
+  avoid fetching local files. Browser security blocks `fetch()` from local file
+  pages. When an example fetches separate static Python files, test it through a
+  local HTTP server.
 - For Plotly examples, use the shared `renderPlotly` helper from
   `window.CourseInteractives` rather than calling `Plotly.react` directly. This
   keeps generated Plotly components resized to the main text column and prevents
@@ -205,6 +210,8 @@ maintaining existing interactive infrastructure.
   `python -m http.server <port> --bind 127.0.0.1`.
 - Visit local pages at `http://localhost:<port>/docs/_build/html/` after a
   Sphinx build, or serve a built output directory directly.
+- Prefer the local HTTP server workflow for browser verification, especially
+  when an example fetches static assets.
 - Stop repo-local HTTP servers with `scripts/kill-local-http-server <pid>`.
   Do not use raw `kill <pid>` for this workflow.
 

@@ -31,6 +31,9 @@ python -m http.server 8765 --bind 127.0.0.1
 
 Open `http://localhost:8765/docs/_build/html/`.
 
+The local server workflow is recommended for interactive examples, especially
+when an example fetches static assets.
+
 When finished, stop the server with:
 
 ```bash
