@@ -6,7 +6,7 @@ def test_sphinx_config_defines_reusable_infrastructure() -> None:
     conf = load_conf()
     macros = conf["mathjax3_config"]["tex"]["macros"]
 
-    assert conf["project"] == "Course Notes"
+    assert conf["project"] == "Interactive Notes"
     assert "myst_parser" in conf["extensions"]
     assert conf["numfig"] is True
     assert "js/course-interactives.js" in conf["html_js_files"]
