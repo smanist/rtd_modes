@@ -14,6 +14,7 @@ chapters/04_second_order_mechanical_modal_analysis
 chapters/05_linear_time_varying_systems
 chapters/06_floquet_analysis
 chapters/07_lyapunov_exponents_and_covariant_lyapunov_vectors
+chapters/09_pod_kl_and_snapshot_methods
 chapters/getting-started
 chapters/interactive-example
 ```
