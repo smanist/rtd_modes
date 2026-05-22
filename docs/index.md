@@ -8,6 +8,7 @@ Markdown, Sphinx cross-references, figures, and LaTeX equations.
 :caption: Contents
 
 chapters/01_model_taxonomy
+chapters/05_linear_time_varying_systems
 chapters/getting-started
 chapters/interactive-example
 ```
