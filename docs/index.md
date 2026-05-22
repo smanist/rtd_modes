@@ -7,6 +7,7 @@ Markdown, Sphinx cross-references, figures, and LaTeX equations.
 :maxdepth: 1
 :caption: Contents
 
+chapters/01_model_taxonomy
 chapters/getting-started
 chapters/interactive-example
 ```

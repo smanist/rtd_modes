@@ -7,6 +7,10 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 ## Documentation Structure
 
 - Keep chapter content in Markdown under `docs/chapters/`.
+- Name numbered chapter files as `NN_<chapter_title_slug>.md`, where `NN` is
+  the two-digit chapter number and the title slug is lowercase snake case. For
+  example, Chapter 1 "Model Taxonomy" should be
+  `docs/chapters/01_model_taxonomy.md`.
 - Prefer MyST syntax for math, cross-references, figures, and directives.
 - Keep Sphinx configuration in `docs/conf.py`.
 - Keep shared styling in `docs/_static/css/`.
