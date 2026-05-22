@@ -27,7 +27,7 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 
 - At this stage, implement only theory content and hand-derivable examples.
 - Do not add recurring engineering examples yet.
-- Do not add new interactive examples to course chapters yet.
+- Interactive examples may be added for visualizing hand-derived examples only.
 - Existing interactive infrastructure may be maintained or fixed when explicitly
   requested.
 
@@ -108,6 +108,37 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
   JavaScript files.
 - If a raw HTML block grows beyond a small placeholder, move that behavior into
   a reusable directive, template, or JavaScript module.
+
+## Interactive Spec Blocks
+
+- Use MyST containers to mark planned interactive examples before
+  implementation. Do not use raw custom HTML tags such as `<interaction>`.
+- Temporary specs should use the `interactive-spec` class and a stable `:name:`
+  value:
+
+  ```md
+  :::{container} interactive-spec
+  :name: interactive-spec-ch01-oscillator
+
+  Visualize the hand-derived oscillator example. Show phase-plane motion,
+  time traces, and controls for frequency and initial condition.
+
+  Reference implementation: `ch01_oscillator.py`
+  :::
+  ```
+
+- When implementing a spec, replace the `interactive-spec` block with the final
+  `course-interactive` placeholder and move all runtime behavior into
+  `docs/_static/js/examples/`.
+- Treat reference implementations as
+  optional, read-only drafting aids, not as source files for the built site.
+- Before resolving the reference path, prepend `../../scratch/`.  For example,
+  `ch01_oscillator.py` would mean `../../scratch/ch01_oscillator.py`.  Agents
+  working from `.a-dev/worktrees/<name>/` should look in the sibling scratch
+  directory at `.a-dev/scratch/`, without requiring the chapter Markdown to use
+  `../../scratch/` path prefixes.
+- If a referenced scratch file is missing, proceed from the written spec rather
+  than blocking.
 
 ## Importing Chapters
 
