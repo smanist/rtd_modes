@@ -1,3 +1,6 @@
 .DS_Store
 docs/_build
 tests/__pycache__
+
+# A-Dev artifacts
+.a-dev/
