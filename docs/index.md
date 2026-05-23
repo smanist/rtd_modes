@@ -21,14 +21,4 @@ chapters/11_koopman_spectral_theory
 chapters/12_spod_and_resolvent_analysis
 chapters/13_nonlinear_normal_modes
 chapters/14_modes_on_manifolds
-chapters/interactive-example
 ```
-
-## Site Conventions
-
-- Write chapters as Markdown files in `docs/chapters/`.
-- Put reusable browser code in `docs/_static/js/`.
-- Put small embedded example placeholders in the Markdown where each
-  interactive example should appear.
-- Keep heavyweight libraries pinned by exact CDN version until the site needs
-  vendored or offline assets.
