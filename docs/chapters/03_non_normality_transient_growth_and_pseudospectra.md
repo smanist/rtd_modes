@@ -6,36 +6,16 @@ governing operator is non-normal, decaying eigenmodes can interfere
 constructively, small perturbations can move eigenvalues substantially, and
 harmonic forcing can be strongly amplified even though every eigenvalue lies in
 the stable half-plane.
+<!-- 
+:::{container} course-interactive course-interactive-chapter3-linear-phase-plane
 
+Interactive example loading...
+::: -->
 
-  ```md
-  :::{container} interactive-spec
-  :name: interactive-spec-phase_plane_ss
+:::{container} course-interactive course-interactive-chapter3-nonlinear-phase-plane
 
-  Implement the `pltPhasePlaneSS` idea in the reference.
-  Make a slider for the parameter.
-  Plot the trajectories of the largest and smallest parameter values
-  as a reference.
-  The numerical core should be python.
-
-  Reference implementation: `ds_utils.py`
-  :::
-  ```
-
-
-  ```md
-  :::{container} interactive-spec
-  :name: interactive-spec-phase_plane_nl
-
-  Implement the `pltPhasePlaneNL` idea in the reference.
-  Make a slider for the initial condition.
-  The numerical core should be python.
-
-  Reference implementation: `ds_utils.py`
-  :::
-  ```
-
-
+Interactive example loading...
+:::
 
 
 :::{container} course-interactive course-interactive-chapter3-transient-energy
