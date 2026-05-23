@@ -7,6 +7,37 @@ constructively, small perturbations can move eigenvalues substantially, and
 harmonic forcing can be strongly amplified even though every eigenvalue lies in
 the stable half-plane.
 
+
+  ```md
+  :::{container} interactive-spec
+  :name: interactive-spec-phase_plane_ss
+
+  Implement the `pltPhasePlaneSS` idea in the reference.
+  Make a slider for the parameter.
+  Plot the trajectories of the largest and smallest parameter values
+  as a reference.
+  The numerical core should be python.
+
+  Reference implementation: `ds_utils.py`
+  :::
+  ```
+
+
+  ```md
+  :::{container} interactive-spec
+  :name: interactive-spec-phase_plane_nl
+
+  Implement the `pltPhasePlaneNL` idea in the reference.
+  Make a slider for the initial condition.
+  The numerical core should be python.
+
+  Reference implementation: `ds_utils.py`
+  :::
+  ```
+
+
+
+
 :::{container} course-interactive course-interactive-chapter3-transient-energy
 
 Interactive example loading...
@@ -37,56 +68,6 @@ viewed in the continuous-time system
 The eigenvalues of $A$ are fixed at $-1$ and $-2$, so the system is
 asymptotically stable for every $K>0$. The interesting question is what changes
 when the off-diagonal coupling $K$ becomes large.
-
-## Normal and Non-normal Operators
-
-For a complex matrix, normality means
-
-```{math}
-:label: eq:chapter3-normality
-
-A^*A = AA^*.
-```
-
-Normal matrices are unitarily diagonalizable, so their eigenvectors can be
-chosen orthonormally. In that case the modal directions do not interfere
-through the geometry of the basis. Growth and decay are then controlled cleanly
-by the eigenvalues.
-
-The matrix in {eq}`eq:chapter3-example-matrix` is different. Its adjoint is
-
-```{math}
-
-A^* =
-\begin{bmatrix}
--1 & 0 \\
-K & -2
-\end{bmatrix},
-```
-
-and direct multiplication gives
-
-```{math}
-
-A^*A =
-\begin{bmatrix}
-1 & -K \\
--K & K^2+4
-\end{bmatrix},
-\qquad
-AA^* =
-\begin{bmatrix}
-K^2+1 & -2K \\
--2K & 4
-\end{bmatrix}.
-```
-
-These are unequal unless $K=0$, so the operator is non-normal for every
-$K>0$.
-
-The point is not merely algebraic. Non-normality means the eigenvectors need
-not be orthogonal, so the eigenvalue picture alone no longer captures how state
-components can combine.
 
 ## Eigenvector Nonorthogonality and Modal Interference
 
@@ -156,6 +137,68 @@ that grows linearly with the non-normal coupling.
 This is the basic mechanism of modal interference: the eigendirections
 themselves decay, but the nonorthogonal eigenbasis can require large modal
 coefficients whose partial cancellation at $t=0$ disappears at later times.
+
+
+The practical implication of modal interference is that: the system may enter
+nonlinear region before it stabilizes to the equilibrium; in fact, once it
+enters the nonlinear region, the system may not be able to return to the
+equilibrium anymore.
+
+In other words, we need to differentiate two types of stability:
+
++ Linear stability: we are interested in the **minimum** critical parameter above which a specific initial condition of **infinitesimal** amplitude grows exponentially
++ Energy stability: we are interested in the **maximum** critical parameter below which a general initial condition of **finite** amplitude decays monotonically
+
+
+## Normal and Non-normal Operators
+
+For a complex matrix, normality means
+
+```{math}
+:label: eq:chapter3-normality
+
+A^*A = AA^*.
+```
+
+Normal matrices are unitarily diagonalizable, so their eigenvectors can be
+chosen orthonormally. In that case the modal directions do not interfere
+through the geometry of the basis. Growth and decay are then controlled cleanly
+by the eigenvalues.
+
+The matrix in {eq}`eq:chapter3-example-matrix` is different. Its adjoint is
+
+```{math}
+
+A^* =
+\begin{bmatrix}
+-1 & 0 \\
+K & -2
+\end{bmatrix},
+```
+
+and direct multiplication gives
+
+```{math}
+
+A^*A =
+\begin{bmatrix}
+1 & -K \\
+-K & K^2+4
+\end{bmatrix},
+\qquad
+AA^* =
+\begin{bmatrix}
+K^2+1 & -2K \\
+-2K & 4
+\end{bmatrix}.
+```
+
+These are unequal unless $K=0$, so the operator is non-normal for every
+$K>0$.
+
+The point is not merely algebraic. Non-normality means the eigenvectors need
+not be orthogonal, so the eigenvalue picture alone no longer captures how state
+components can combine.
 
 ## Transient Growth Despite Asymptotic Stability
 
