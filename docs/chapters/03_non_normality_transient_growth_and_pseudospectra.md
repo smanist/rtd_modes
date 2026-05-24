@@ -25,6 +25,22 @@ Interactive example loading...
 :::
 
 
+  ```md
+  :::{container} interactive-spec
+  :name: interactive-spec-init_gain
+
+  Visualize the comparison of max and min gains based on the resolvent.
+  Pick the initial conditions corresponding to these gains and plot
+  the trajectories; mark where the gain is achieved.
+  Allow user input for system parameter.
+
+  Use python for numerical core; use numpy whenever possible.
+
+  Reference implementation: `pltInitGain` in `ds_utils.py`
+  :::
+  ```
+
+
 This chapter develops those ideas with a single hand-derivable example,
 
 ```{math}
