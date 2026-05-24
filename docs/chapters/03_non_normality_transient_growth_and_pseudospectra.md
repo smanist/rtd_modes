@@ -18,6 +18,20 @@ Interactive example loading...
 Interactive example loading...
 :::
 
+
+```md
+:::{container} interactive-spec
+:name: interactive-spec-pseudospec
+
+Visualize the pseudospectrum of the example system, where user can change
+the parameter and see how the contours change.  Overlay the contour of
+numerical range as a reference.
+
+Reference implementation: `pltPseudoSpec` in `ds_utils.py`
+:::
+```
+
+
 This chapter develops those ideas with a single hand-derivable example,
 
 ```{math}
