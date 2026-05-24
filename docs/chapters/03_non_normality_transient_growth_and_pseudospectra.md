@@ -27,6 +27,8 @@ Visualize the pseudospectrum of the example system, where user can change
 the parameter and see how the contours change.  Overlay the contour of
 numerical range as a reference.
 
+Use Python as numerical core; use only numpy whenever possible.
+
 Reference implementation: `pltPseudoSpec` in `ds_utils.py`
 :::
 ```
