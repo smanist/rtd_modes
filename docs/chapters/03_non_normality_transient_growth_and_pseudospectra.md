@@ -6,20 +6,15 @@ governing operator is non-normal, decaying eigenmodes can interfere
 constructively, small perturbations can move eigenvalues substantially, and
 harmonic forcing can be strongly amplified even though every eigenvalue lies in
 the stable half-plane.
-<!-- 
-:::{container} course-interactive course-interactive-chapter3-linear-phase-plane
 
-Interactive example loading...
-::: -->
-
-:::{container} course-interactive course-interactive-chapter3-nonlinear-phase-plane
-
+:::{course-interactive}
+:data-example: chapter3-nonlinear-phase-plane
 Interactive example loading...
 :::
 
 
-:::{container} course-interactive course-interactive-chapter3-transient-energy
-
+:::{course-interactive}
+:data-example: chapter3-transient-energy
 Interactive example loading...
 :::
 

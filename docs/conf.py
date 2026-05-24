@@ -1,3 +1,9 @@
+from html import escape
+
+from docutils import nodes
+from docutils.parsers.rst import Directive, directives
+
+
 project = "Interactive Notes"
 author = "Course Staff"
 
@@ -59,3 +65,31 @@ html_theme_options = {
     "description": "Modal Analysis of Nonlinear Dynamical Systems",
     "fixed_sidebar": True,
 }
+
+
+class CourseInteractiveDirective(Directive):
+    has_content = True
+    option_spec = {
+        "data-example": directives.unchanged_required,
+        "name": directives.unchanged,
+    }
+
+    def run(self):
+        self.assert_has_content()
+        content = nodes.container()
+        self.state.nested_parse(self.content, self.content_offset, content)
+        data_example = escape(self.options["data-example"], quote=True)
+
+        return [
+            nodes.raw(
+                "",
+                f'<div class="course-interactive" data-example="{data_example}">',
+                format="html",
+            ),
+            *content.children,
+            nodes.raw("", "</div>", format="html"),
+        ]
+
+
+def setup(app):
+    app.add_directive("course-interactive", CourseInteractiveDirective)

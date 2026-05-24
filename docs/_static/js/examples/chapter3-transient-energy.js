@@ -223,7 +223,5 @@ def transient_energy(coupling=8.0, time_max=6.0, steps=320):
     await draw();
   }
 
-  registerExample("chapter3-transient-energy", initChapter3TransientEnergy, {
-    selectors: [".course-interactive-chapter3-transient-energy"],
-  });
+  registerExample("chapter3-transient-energy", initChapter3TransientEnergy);
 })();

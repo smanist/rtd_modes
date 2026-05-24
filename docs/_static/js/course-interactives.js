@@ -259,22 +259,13 @@
     return wrapper;
   }
 
-  function registerExample(name, initializer, options = {}) {
-    examples.set(name, {
-      initializer,
-      selectors: options.selectors || [],
-    });
+  function registerExample(name, initializer) {
+    examples.set(name, { initializer });
   }
 
   function findExample(element) {
     if (element.dataset.example && examples.has(element.dataset.example)) {
       return examples.get(element.dataset.example);
-    }
-
-    for (const example of examples.values()) {
-      if (example.selectors.some((selector) => element.matches(selector))) {
-        return example;
-      }
     }
 
     return null;

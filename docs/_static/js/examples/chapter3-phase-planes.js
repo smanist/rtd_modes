@@ -491,10 +491,6 @@ def nonlinear_phase_plane(initial_x1=0.4, initial_x2=0.1, delta=0.05):
     await draw();
   }
 
-  registerExample("chapter3-linear-phase-plane", initLinearPhasePlane, {
-    selectors: [".course-interactive-chapter3-linear-phase-plane"],
-  });
-  registerExample("chapter3-nonlinear-phase-plane", initNonlinearPhasePlane, {
-    selectors: [".course-interactive-chapter3-nonlinear-phase-plane"],
-  });
+  registerExample("chapter3-linear-phase-plane", initLinearPhasePlane);
+  registerExample("chapter3-nonlinear-phase-plane", initNonlinearPhasePlane);
 })();

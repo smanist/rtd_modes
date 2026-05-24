@@ -45,11 +45,13 @@ scripts/kill-local-http-server <pid>
 1. Add a semantic placeholder to a chapter:
 
    ```md
-   :::{container} course-interactive course-interactive-my-example
+   :::{course-interactive}
+   :data-example: my-example
+
    Interactive example loading...
    :::
    ```
 
 2. Add `docs/_static/js/examples/my-example.js`.
-3. Register the initializer with `CourseInteractives.registerExample(...)`.
+3. Register the initializer with `CourseInteractives.registerExample("my-example", ...)`.
 4. Add the script to `html_js_files` in `docs/conf.py`.

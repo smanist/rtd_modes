@@ -94,10 +94,10 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
   inside chapter Markdown files.
 - A chapter may embed an interactive example in prose, but the Markdown should
   contain only a small semantic MyST placeholder when possible.
-- Prefer MyST containers with identifying classes:
+- Prefer the `course-interactive` MyST directive:
 
   ```md
-  :::{container} course-interactive
+  :::{course-interactive}
   :data-example: demo-plot
 
   Interactive example loading...
@@ -108,6 +108,8 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
   JavaScript files.
 - If a raw HTML block grows beyond a small placeholder, move that behavior into
   a reusable directive, template, or JavaScript module.
+- Bind implemented examples with `:data-example:` only. Do not encode example
+  identity in extra CSS classes.
 
 ## Interactive Spec Blocks
 
@@ -183,6 +185,8 @@ maintaining existing interactive infrastructure.
   registry, and initialization behavior.
 - Example files should register a small initializer that receives the
   placeholder element and reads configuration from `data-*` attributes.
+- Register examples by name with `window.CourseInteractives.registerExample`;
+  the name must match the placeholder's `:data-example:` value.
 - Avoid duplicating CDN loading logic across example files. Use shared helpers
   for Plotly, Pyodide, p5.js, and JSXGraph.
 - Pyodide-backed examples that need local Python source while opened with

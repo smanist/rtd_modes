@@ -1,4 +1,5 @@
-from helpers import DOCS_DIR, EXAMPLES_DIR, INDEX_PATH, load_conf, read_text
+from helpers import CHAPTERS_DIR, DOCS_DIR, EXAMPLES_DIR, INDEX_PATH
+from helpers import load_conf, read_text
 from helpers import index_toctree_entries
 
 
@@ -44,3 +45,13 @@ def test_configured_example_scripts_exist_and_register() -> None:
         path = EXAMPLES_DIR / script.removeprefix("js/examples/")
         assert path.is_file()
         assert "registerExample(" in read_text(path)
+
+
+def test_interactive_examples_use_data_example_only() -> None:
+    chapter_text = "\n".join(read_text(path) for path in CHAPTERS_DIR.glob("*.md"))
+    example_text = "\n".join(read_text(path) for path in EXAMPLES_DIR.glob("*.js"))
+    loader_text = read_text(DOCS_DIR / "_static" / "js" / "course-interactives.js")
+
+    assert "course-interactive-" not in chapter_text
+    assert "selectors:" not in example_text
+    assert "selectors" not in loader_text

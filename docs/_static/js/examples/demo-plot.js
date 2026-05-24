@@ -93,7 +93,5 @@
     draw();
   }
 
-  registerExample("demo-plot", initDemoPlot, {
-    selectors: [".course-interactive-demo-plot"],
-  });
+  registerExample("demo-plot", initDemoPlot);
 })();
