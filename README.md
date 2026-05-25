@@ -1,6 +1,6 @@
-# Interactive Notes Skeleton
+# Modal Analysis Notes
 
-A reusable static Sphinx/MyST starter for interactive notes with:
+A static Sphinx/MyST site for interactive modal-analysis notes with:
 
 - Markdown chapters in `docs/chapters/`
 - MathJax macros configured in `docs/conf.py`
@@ -20,24 +20,53 @@ python -m pip install -r requirements.txt
 ## Build
 
 ```bash
-sphinx-build -b html docs docs/_build/html
+make html
+```
+
+Run the full local check before review or handoff:
+
+```bash
+make check
 ```
 
 ## Serve Locally
 
 ```bash
-python -m http.server 8765 --bind 127.0.0.1
+make serve-html
 ```
 
-Open `http://localhost:8765/docs/_build/html/`.
+Open `http://127.0.0.1:8765/docs/_build/html/`.
 
 The local server workflow is recommended for interactive examples, especially
-when an example fetches static assets.
+when an example fetches static assets such as Python source files.
 
 When finished, stop the server with:
 
 ```bash
 scripts/kill-local-http-server <pid>
+```
+
+To build, serve, fetch representative pages, and run tests in one command:
+
+```bash
+make check-local-html
+```
+
+For smoother Codex browser verification, allow `http://127.0.0.1:8765` in
+`.codex/browser/config.toml`:
+```toml
+[origins]
+allowed = ["http://127.0.0.1:8765"]
+```
+
+For smoother local command execution, allow these
+prefix rules in `.codex/rules/default.rules`:
+
+```python
+prefix_rule(pattern=["make", "serve-html"], decision="allow")
+prefix_rule(pattern=["make", "check-local-html"], decision="allow")
+prefix_rule(pattern=["scripts/kill-local-http-server"], decision="allow")
+prefix_rule(pattern=["rm", "docs/_static/py/examples/__pycache__"], decision="allow")
 ```
 
 ## Add an Interactive Example
@@ -55,3 +84,8 @@ scripts/kill-local-http-server <pid>
 2. Add `docs/_static/js/examples/my-example.js`.
 3. Register the initializer with `CourseInteractives.registerExample("my-example", ...)`.
 4. Add the script to `html_js_files` in `docs/conf.py`.
+
+For Python-backed examples, keep reusable Python source under
+`docs/_static/py/examples/`, load it through `CourseInteractives.staticAssetUrl`
+when served over HTTP, and keep an embedded source fallback in the JavaScript
+for `file://` previews.

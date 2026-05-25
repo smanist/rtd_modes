@@ -2,6 +2,7 @@ from html import escape
 
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
+from sphinx import addnodes
 
 
 project = "Interactive Notes"
@@ -31,6 +32,12 @@ numfig = True
 html_theme = "alabaster"
 html_title = project
 html_static_path = ["_static"]
+templates_path = ["_templates"]
+html_sidebars = {
+    "**": [
+        "navigation.html",
+    ],
+}
 
 html_css_files = [
     "css/course.css",
@@ -69,6 +76,26 @@ html_theme_options = {
 }
 
 
+def _doc_title(env, docname, explicit_title=None):
+    if explicit_title:
+        return explicit_title
+    title_node = env.titles.get(docname)
+    if title_node is not None:
+        return title_node.astext()
+    return docname.rsplit("/", 1)[-1].replace("_", " ").title()
+
+
+def _toctree_entries(env, docname):
+    doctree = env.get_doctree(docname)
+    for node in doctree.findall(addnodes.toctree):
+        for explicit_title, ref in node.get("entries", []):
+            if ref in env.found_docs:
+                yield {
+                    "docname": ref,
+                    "title": _doc_title(env, ref, explicit_title),
+                }
+
+
 class CourseInteractiveDirective(Directive):
     has_content = True
     option_spec = {
@@ -93,5 +120,29 @@ class CourseInteractiveDirective(Directive):
         ]
 
 
+def add_course_sidebar_context(app, pagename, templatename, context, doctree):
+    parts = pagename.split("/")
+    group_index = None
+    for length in range(len(parts) - 1, 0, -1):
+        candidate = "/".join([*parts[:length], "index"])
+        if candidate != pagename and candidate in app.env.found_docs:
+            group_index = candidate
+            break
+
+    sidebar_items = []
+    group_children = list(_toctree_entries(app.env, group_index)) if group_index else []
+    for number, item in enumerate(_toctree_entries(app.env, app.config.master_doc), 1):
+        item = dict(item)
+        item["number"] = number
+        item["current"] = pagename == item["docname"] or group_index == item["docname"]
+        item["children"] = group_children if group_index == item["docname"] else []
+        sidebar_items.append(item)
+
+    context["course_group_child"] = group_index is not None
+    context["course_group_index"] = group_index
+    context["course_sidebar_items"] = sidebar_items
+
+
 def setup(app):
     app.add_directive("course-interactive", CourseInteractiveDirective)
+    app.connect("html-page-context", add_course_sidebar_context)

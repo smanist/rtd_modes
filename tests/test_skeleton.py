@@ -10,6 +10,8 @@ def test_sphinx_config_defines_reusable_infrastructure() -> None:
     assert conf["project"] == "Interactive Notes"
     assert "myst_parser" in conf["extensions"]
     assert conf["numfig"] is True
+    assert conf["templates_path"] == ["_templates"]
+    assert conf["html_sidebars"]["**"] == ["navigation.html"]
     assert "js/course-interactives.js" in conf["html_js_files"]
     assert "js/course-page-toc.js" in conf["html_js_files"]
     assert "js/examples/demo-plot.js" in conf["html_js_files"]

@@ -1,6 +1,5 @@
-LOCAL_DOCS_HOST ?= 127.0.0.1
-LOCAL_DOCS_PORT ?= 8765
-LOCAL_DOCS_URL := http://$(LOCAL_DOCS_HOST):$(LOCAL_DOCS_PORT)/docs/_build/html/
+PORT ?= 8765
+BIND ?= 127.0.0.1
 
 .PHONY: html check serve-html check-local-html
 
@@ -11,7 +10,13 @@ check: html
 	pytest
 
 serve-html: html
-	python -m http.server $(LOCAL_DOCS_PORT) --bind $(LOCAL_DOCS_HOST)
+	python -m http.server $(PORT) --bind $(BIND)
 
-check-local-html:
-	curl -sSf $(LOCAL_DOCS_URL) >/dev/null
+check-local-html: html
+	@python -m http.server $(PORT) --bind $(BIND) >/tmp/rtd-modes-http.log 2>&1 & \
+	pid=$$!; \
+	trap 'scripts/kill-local-http-server $$pid >/dev/null 2>&1 || true' EXIT; \
+	sleep 1; \
+	curl -sSf http://$(BIND):$(PORT)/docs/_build/html/ >/dev/null; \
+	curl -sSf http://$(BIND):$(PORT)/docs/_build/html/chapters/03_non_normality_transient_growth_and_pseudospectra.html >/dev/null; \
+	pytest
