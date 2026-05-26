@@ -102,6 +102,12 @@ def rk4_trajectory(kind, x0=(0.4, 0.1), delta=0.05, time_max=50.0, steps=900):
     x = np.zeros((steps + 1, 2), dtype=float)
     x[0] = np.asarray(x0, dtype=float)
 
+    def linear_rhs(y):
+        return f_linear(y, delta)
+
+    def nonlinear_rhs(y):
+        return f_nonlinear(y, delta)
+
     if kind == "linear":
         model = f_linear
     elif kind == "nonlinear":

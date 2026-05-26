@@ -51,6 +51,7 @@ html_js_files = [
     "js/examples/chapter3-initial-gain.js",
     "js/examples/chapter3-pseudospectrum.js",
     "js/examples/chapter3-transient-energy.js",
+    "js/examples/chapter5-time-varying.js",
     "js/examples/demo-plot.js",
 ]
 
