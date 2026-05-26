@@ -296,6 +296,17 @@ e^{-(t-t_0)}
 \end{bmatrix}.
 ```
 
+To make the interval dependence more concrete, fix the same triangular system
+and choose a periodic coefficient $s(t)=\beta \cos t$. Changing the initial
+time $t_0$ and the horizon $t-t_0$ shows that the image of the unit circle
+under $\Phi(t,t_0)$, and therefore the largest finite-time gain, depends on
+where the propagation interval begins.
+
+:::{course-interactive}
+:data-example: chapter5-state-transition-map
+Interactive example loading...
+:::
+
 The off-diagonal term accumulates shear over the interval. Even though the
 instantaneous eigenvalues remain fixed at $-1$, an initial condition with
 $x(t_0) = (0,1)^\top$ evolves to
@@ -351,6 +362,16 @@ e^{-(t-t_0)}
 
 Thus the finite-time growth is governed by the accumulated coupling
 $g(t,t_0)$, not by the frozen-time eigenvalues alone.
+
+A second interactive compares several hand-derivable choices of $s(t)$ for the
+same initial state $x(0) = (0,1)^\top$. All three systems have the same
+instantaneous eigenvalues $-1$, but different shear histories produce visibly
+different phase-plane trajectories and norm histories.
+
+:::{course-interactive}
+:data-example: chapter5-varying-trajectories
+Interactive example loading...
+:::
 
 If $s(t) \equiv \beta$ on the interval, then $g(t,t_0) = \beta(t-t_0)$ and the
 growth can be checked by hand. This simple example captures the main lesson of
