@@ -46,6 +46,7 @@ html_css_files = [
 html_js_files = [
     "js/course-interactives.js",
     "js/course-page-toc.js",
+    "js/examples/chapter2-linear-autonomous.js",
     "js/examples/chapter3-phase-planes.js",
     "js/examples/chapter3-initial-gain.js",
     "js/examples/chapter3-pseudospectrum.js",

@@ -190,6 +190,15 @@ $\mathrm{Re}(\lambda_j)$ is replaced by $|\mu_j|$:
 An eigenvalue is therefore not just a number. Its location and its algebraic
 structure determine how perturbations evolve.
 
+The phase portrait classes below connect those eigenvalue statements to actual
+trajectories. The selected initial condition is highlighted, while the other
+curves show how the same matrix organizes nearby states.
+
+:::{course-interactive}
+:data-example: chapter2-phase-portrait
+Interactive example loading...
+:::
+
 ## Diagonalization, Jordan Form, and Schur Form
 
 Diagonalization is the simplest situation:
@@ -439,6 +448,16 @@ The eigenvalues of $A$ are
 Each second-order vibration mode therefore becomes a complex-conjugate pair of
 first-order state-space modes. Since the eigenvalues lie on the imaginary axis
 and the system is diagonalizable, the motion is bounded and purely oscillatory.
+
+The next interactive keeps the same two mode shapes $u_1$ and $u_2$, fixes the
+initial modal velocities to zero, and lets you vary the initial modal
+coordinates. This makes the projection $q(0)=\eta_1(0)u_1+\eta_2(0)u_2$
+visible in both physical and modal coordinates.
+
+:::{course-interactive}
+:data-example: chapter2-modal-superposition
+Interactive example loading...
+:::
 
 If the trajectories are sampled every $\Delta t$, the exact discrete-time
 eigenvalues are

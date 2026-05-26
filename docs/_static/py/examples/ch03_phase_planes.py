@@ -103,11 +103,14 @@ def rk4_trajectory(kind, x0=(0.4, 0.1), delta=0.05, time_max=50.0, steps=900):
     x[0] = np.asarray(x0, dtype=float)
 
     if kind == "linear":
-        rhs = lambda y: f_linear(y, delta)
+        model = f_linear
     elif kind == "nonlinear":
-        rhs = lambda y: f_nonlinear(y, delta)
+        model = f_nonlinear
     else:
         raise ValueError(f"Unknown trajectory kind: {kind}")
+
+    def rhs(y):
+        return model(y, delta)
 
     for i in range(steps):
         y = x[i]
