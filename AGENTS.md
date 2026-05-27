@@ -12,9 +12,30 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
   example, Chapter 1 "Model Taxonomy" should be
   `docs/chapters/01_model_taxonomy.md`.
 - Prefer MyST syntax for math, cross-references, figures, and directives.
+- Use the repo-local `foldbox` MyST directive for detailed math derivations or
+  other optional technical detail that should be folded by default:
+
+  ````md
+  :::{foldbox} Detailed derivation
+
+  ```{math}
+  \delta \dot{x}
+  = \left.\ppf{f}{x}\right|_{x^\ast} \delta x .
+  ```
+
+  :::
+  ````
+
+  Add the `:open:` option only when a foldbox should be expanded initially.
 - Keep Sphinx configuration in `docs/conf.py`.
 - Keep shared styling in `docs/_static/css/`.
 - Keep browser-side interactive code in `docs/_static/js/`.
+- When editing existing chapter content, do not change site architecture files
+  such as `docs/conf.py`, built HTML files, templates, shared static assets, or
+  navigation files unless the user explicitly asks for those changes.
+- For a single-file chapter, or for the top-level file in a grouped chapter,
+  name the final content-summary section `Summary`. Do not use alternate names
+  such as `Takeaways`, `Key Takeaways`, or `Conclusion` for that section.
 
 ## Syllabus File Policy
 
@@ -130,15 +151,15 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
   ```
 
 - When implementing a spec, replace the `interactive-spec` block with the final
-  `course-interactive` placeholder and move all runtime behavior into
+  `course-interactive` directive and move all runtime behavior into
   `docs/_static/js/examples/`.
-- Treat reference implementations as
-  optional, read-only drafting aids, not as source files for the built site.
-- Before resolving the reference path, prepend `../../scratch/`.  For example,
-  `ch01_oscillator.py` would mean `../../scratch/ch01_oscillator.py`.  Agents
-  working from `.a-dev/worktrees/<name>/` should look in the sibling scratch
-  directory at `.a-dev/scratch/`, without requiring the chapter Markdown to use
-  `../../scratch/` path prefixes.
+- Treat reference implementations as optional, read-only drafting aids, not as
+  source files for the built site.
+- Before resolving a reference path, prepend `../../scratch/`. For example,
+  `ch01_oscillator.py` means `../../scratch/ch01_oscillator.py`. Agents working
+  from `.a-dev/worktrees/<name>/` should look in the sibling scratch directory
+  at `.a-dev/scratch/`, without requiring chapter Markdown to use those path
+  prefixes.
 - If a referenced scratch file is missing, proceed from the written spec rather
   than blocking.
 
@@ -239,5 +260,7 @@ maintaining existing interactive infrastructure.
   both the fresh Sphinx build and the test suite.
 - Use `make html` for an intermediate documentation-only check while drafting.
   The handoff check is still `make check`.
+- Use `make check-local-html` when you specifically need to verify the built
+  site through the local HTTP server route.
 - For interactive examples, verify at least one rendered page in a browser when
   behavior changes.

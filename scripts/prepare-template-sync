@@ -77,7 +77,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ ! -d .git ]]; then
-  echo "error: run this script from inside the rtd_modes git worktree" >&2
+  echo "error: run this script from inside a target course git worktree" >&2
   exit 1
 fi
 

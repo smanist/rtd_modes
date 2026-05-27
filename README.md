@@ -66,8 +66,35 @@ prefix rules in `.codex/rules/default.rules`:
 prefix_rule(pattern=["make", "serve-html"], decision="allow")
 prefix_rule(pattern=["make", "check-local-html"], decision="allow")
 prefix_rule(pattern=["scripts/kill-local-http-server"], decision="allow")
+prefix_rule(pattern=["scripts/prepare-template-sync"], decision="allow")
 prefix_rule(pattern=["rm", "docs/_static/py/examples/__pycache__"], decision="allow")
 ```
+
+## Sync From Template
+
+This course repo can use `scripts/prepare-template-sync` to review updates from
+a fresh `rtd_skeleton` commit without applying them immediately. Run it from a
+clean target course worktree:
+
+```bash
+scripts/prepare-template-sync --template-repo ../rtd_skeleton --ref main
+```
+
+The script fetches the template ref, writes review artifacts under
+`.git/template-sync/<timestamp>/`, and prints commands for reviewing the full
+candidate diff and selecting individual hunks with `git restore -p`. The
+generated artifact directory includes `stat.txt`, `files.txt`, `candidate.patch`,
+and `select-hunks.sh`.
+
+Useful options:
+
+- `--select` starts interactive hunk selection after writing the artifacts.
+- `--scaffold-only` excludes `docs/chapters/` so course content is left alone.
+- `--include-syllabus` includes `syllabus/`, which is excluded by default.
+- `--template-repo` and `--ref` choose a different template source or branch.
+
+After selecting hunks, inspect the working tree, run the relevant checks, and
+commit the accepted template updates.
 
 ## Add an Interactive Example
 

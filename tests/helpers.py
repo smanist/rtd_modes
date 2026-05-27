@@ -9,6 +9,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = REPO_ROOT / "docs"
 CHAPTERS_DIR = DOCS_DIR / "chapters"
 EXAMPLES_DIR = DOCS_DIR / "_static" / "js" / "examples"
+PY_EXAMPLES_DIR = DOCS_DIR / "_static" / "py" / "examples"
 INDEX_PATH = DOCS_DIR / "index.md"
 CONF_PATH = DOCS_DIR / "conf.py"
 
