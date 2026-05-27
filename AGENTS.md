@@ -1,6 +1,7 @@
+<!-- a-rtd:begin managed name="global-agent-policy" version="0.1.0" -->
 # Agent Guidelines
 
-This repository is a static Sphinx/MyST site for interactive notes.
+This repository is a static Sphinx/MyST site for interactive course notes.
 
 This is a graduate-level course for modal analysis of nonlinear dynamical systems.
 
@@ -36,78 +37,6 @@ This is a graduate-level course for modal analysis of nonlinear dynamical system
 - For a single-file chapter, or for the top-level file in a grouped chapter,
   name the final content-summary section `Summary`. Do not use alternate names
   such as `Takeaways`, `Key Takeaways`, or `Conclusion` for that section.
-
-## Syllabus File Policy
-
-- Treat all files under `syllabus/` as read-only reference material.
-- Do not modify files under `syllabus/` during notes implementation work.
-- Use `syllabus/modal_analysis_topic_example_map.md` as guidance for
-  topic/example alignment when drafting or updating notes.
-
-## Temporary Implementation Scope
-
-- At this stage, implement only theory content and hand-derivable examples.
-- Do not add recurring engineering examples yet.
-- Interactive examples may be added for visualizing hand-derived examples only.
-- Existing interactive infrastructure may be maintained or fixed when explicitly
-  requested.
-
-## Notation Policy and Quick Reference
-
-- Notation in notes should follow `syllabus/notation_convention.md`.
-- Parentheses in the notation table indicate displayed examples. In chapter
-  prose, write inline math using MyST/Markdown math delimiters such as
-  `$x(t)$`, `$x_k$`, and `$\mathbf{x}_k$`.
-
-### Rule of Thumb
-
-> Plain italic symbols describe mathematical objects in the model.
-> Bold symbols describe sampled numerical data or assembled arrays.
-> Calligraphic symbols describe operators and spaces.
-> Blackboard-bold symbols describe standard number spaces or expectations.
-> Subscripts index components, time steps, or modes; parenthesized
-> superscripts index realizations or labels.
-
-### Compact Notation Table
-
-| Quantity                | Recommended notation |
-| ----------------------- | -------------------- |
-| continuous-time state   | `(x(t))`             |
-| discrete-time state     | `(x_k)`              |
-| numerical snapshot      | `(\mathbf{x}_k)`    |
-| component of state      | `(x_i)`              |
-| snapshot matrix         | `(\mathbf{X})`      |
-| shifted snapshot matrix | `(\mathbf{Y})`      |
-| input/output            | `(u(t), y(t))`       |
-| state matrix            | `(A)`                |
-| input/output matrices   | `(B,C,D)`            |
-| mass/damping/stiffness  | `(M,C,K)`            |
-| mode shape/eigenvector  | `(\phi_j)`          |
-| adjoint mode            | `(\psi_j)`          |
-| eigenvalue              | `(\lambda_j)`       |
-| natural frequency       | `(\omega_j)`        |
-| modal coordinate        | `(\eta_j(t))`       |
-| modal basis             | `(\Phi_r)` or `(V_r)` |
-| reduction basis         | `(V_r)`              |
-| test basis              | `(W_r)`              |
-| reduced state           | `(a(t))`             |
-| Koopman operator        | `(\mathcal{K}^t)`   |
-| Koopman generator       | `(\mathcal{L})`     |
-| observable              | `(g)`                |
-| Koopman eigenfunction   | `(\varphi_j)`       |
-| state-transition matrix | `(\Phi(t,t_0))`     |
-| monodromy matrix        | `(M_F)`              |
-| Floquet multiplier      | `(\rho_j)`          |
-| Floquet exponent        | `(\nu_j)`           |
-| Lyapunov exponent       | `(\chi_j)`          |
-| CLV                     | `(\ell_j(t))`       |
-| covariance              | `(C_x)`              |
-| cross-spectral density  | `(S_x(\omega))`     |
-| resolvent               | `(R(i\omega;A))`    |
-| Hilbert space           | `(\mathcal{H})`     |
-| manifold                | `(\mathcal{M})`     |
-| invariant measure       | `(\mu)`             |
-| expectation             | `(\mathbb{E})`      |
 
 ## Avoid Raw HTML in Chapters
 
@@ -264,3 +193,78 @@ maintaining existing interactive infrastructure.
   site through the local HTTP server route.
 - For interactive examples, verify at least one rendered page in a browser when
   behavior changes.
+<!-- a-rtd:end managed -->
+
+
+## Syllabus File Policy
+
+- Treat all files under `syllabus/` as read-only reference material.
+- Do not modify files under `syllabus/` during notes implementation work.
+- Use `syllabus/modal_analysis_topic_example_map.md` as guidance for
+  topic/example alignment when drafting or updating notes.
+
+## Temporary Implementation Scope
+
+- At this stage, implement only theory content and hand-derivable examples.
+- Do not add recurring engineering examples yet.
+- Interactive examples may be added for visualizing hand-derived examples only.
+- Existing interactive infrastructure may be maintained or fixed when explicitly
+  requested.
+
+## Notation Policy and Quick Reference
+
+- Notation in notes should follow `syllabus/notation_convention.md`.
+- Parentheses in the notation table indicate displayed examples. In chapter
+  prose, write inline math using MyST/Markdown math delimiters such as
+  `$x(t)$`, `$x_k$`, and `$\mathbf{x}_k$`.
+
+### Rule of Thumb
+
+> Plain italic symbols describe mathematical objects in the model.
+> Bold symbols describe sampled numerical data or assembled arrays.
+> Calligraphic symbols describe operators and spaces.
+> Blackboard-bold symbols describe standard number spaces or expectations.
+> Subscripts index components, time steps, or modes; parenthesized
+> superscripts index realizations or labels.
+
+### Compact Notation Table
+
+| Quantity                | Recommended notation |
+| ----------------------- | -------------------- |
+| continuous-time state   | `(x(t))`             |
+| discrete-time state     | `(x_k)`              |
+| numerical snapshot      | `(\mathbf{x}_k)`    |
+| component of state      | `(x_i)`              |
+| snapshot matrix         | `(\mathbf{X})`      |
+| shifted snapshot matrix | `(\mathbf{Y})`      |
+| input/output            | `(u(t), y(t))`       |
+| state matrix            | `(A)`                |
+| input/output matrices   | `(B,C,D)`            |
+| mass/damping/stiffness  | `(M,C,K)`            |
+| mode shape/eigenvector  | `(\phi_j)`          |
+| adjoint mode            | `(\psi_j)`          |
+| eigenvalue              | `(\lambda_j)`       |
+| natural frequency       | `(\omega_j)`        |
+| modal coordinate        | `(\eta_j(t))`       |
+| modal basis             | `(\Phi_r)` or `(V_r)` |
+| reduction basis         | `(V_r)`              |
+| test basis              | `(W_r)`              |
+| reduced state           | `(a(t))`             |
+| Koopman operator        | `(\mathcal{K}^t)`   |
+| Koopman generator       | `(\mathcal{L})`     |
+| observable              | `(g)`                |
+| Koopman eigenfunction   | `(\varphi_j)`       |
+| state-transition matrix | `(\Phi(t,t_0))`     |
+| monodromy matrix        | `(M_F)`              |
+| Floquet multiplier      | `(\rho_j)`          |
+| Floquet exponent        | `(\nu_j)`           |
+| Lyapunov exponent       | `(\chi_j)`          |
+| CLV                     | `(\ell_j(t))`       |
+| covariance              | `(C_x)`              |
+| cross-spectral density  | `(S_x(\omega))`     |
+| resolvent               | `(R(i\omega;A))`    |
+| Hilbert space           | `(\mathcal{H})`     |
+| manifold                | `(\mathcal{M})`     |
+| invariant measure       | `(\mu)`             |
+| expectation             | `(\mathbb{E})`      |
+

@@ -1,0 +1,95 @@
+version: 1
+project:
+  name: Interactive Notes
+  profile: sphinx-myst-course
+  docs_dir: docs
+  site_url: null
+a_rtd:
+  version: 0.1.0
+  update_policy: managed-blocks
+profile: sphinx-myst-course
+managed_files:
+- path: .gitignore
+  mode: full
+  template: common/gitignore.j2
+- path: .readthedocs.yaml
+  mode: full
+  template: sphinx/readthedocs.yaml.j2
+- path: requirements.txt
+  mode: full
+  template: sphinx/requirements.txt.j2
+- path: Makefile
+  mode: full
+  template: sphinx/Makefile.j2
+- path: README.md
+  mode: full
+  template: sphinx/README.md.j2
+- path: scripts/kill-local-http-server
+  mode: full
+  template: common/kill-local-http-server.j2
+- path: docs/conf.py
+  mode: block
+  template: sphinx/conf.py.j2
+  name: sphinx-myst-course
+- path: AGENTS.md
+  mode: block
+  template: common/AGENTS.md.j2
+  name: global-agent-policy
+- path: .codex/skills/split-chapter-pages/SKILL.md
+  mode: full
+  template: common/codex/skills/split-chapter-pages/SKILL.md.j2
+- path: .codex/skills/split-chapter-pages/scripts/split_chapter_pages.py
+  mode: full
+  template: common/codex/skills/split-chapter-pages/scripts/split_chapter_pages.py.j2
+- path: .codex/skills/split-chapter-pages/agents/openai.yaml
+  mode: full
+  template: common/codex/skills/split-chapter-pages/agents/openai.yaml.j2
+variables:
+  site_name: Interactive Notes
+  author: Course Staff
+  description: Modal Analysis of Nonlinear Dynamical Systems
+  example_js_files:
+  - js/examples/chapter2-linear-autonomous.js
+  - js/examples/chapter3-phase-planes.js
+  - js/examples/chapter3-initial-gain.js
+  - js/examples/chapter3-pseudospectrum.js
+  - js/examples/chapter3-transient-energy.js
+  - js/examples/chapter5-time-varying.js
+  - js/examples/demo-plot.js
+  - js/examples/python-demo.js
+state:
+  .gitignore:
+    mode: full
+    template: common/gitignore.j2
+    version: 0.1.0
+    sha256: 328fef67ad7d7a7db3c74f2ff07ca3e935cb92def0fe321609ce8d409476d84b
+  scripts/kill-local-http-server:
+    mode: full
+    template: common/kill-local-http-server.j2
+    version: 0.1.0
+    sha256: e9224da1183d655b767bf0a2c0aed8df1f8fd4338524986dc093376a77676be3
+  docs/conf.py:
+    mode: block
+    template: sphinx/conf.py.j2
+    version: 0.1.0
+    sha256: 5a4f2712b1c8006cf2661a88cc9cb7fc915d7eddd3b8dd049f7e647783492c3a
+  AGENTS.md:
+    mode: block
+    template: common/AGENTS.md.j2
+    version: 0.1.0
+    sha256: 67c22193ccd3010a276431238be1738e7cb1d31929717e94d04b18f3eb463bda
+  .codex/skills/split-chapter-pages/SKILL.md:
+    mode: full
+    template: common/codex/skills/split-chapter-pages/SKILL.md.j2
+    version: 0.1.0
+    sha256: 5857f6dbb38568a279951f3d8b0ce2a282e367529dc9a43f48342a11573f12d5
+  .codex/skills/split-chapter-pages/scripts/split_chapter_pages.py:
+    mode: full
+    template: common/codex/skills/split-chapter-pages/scripts/split_chapter_pages.py.j2
+    version: 0.1.0
+    sha256: 0a247f8ed2cf37eb9dd339d25779f5e4703dbb5f83a86c798b55eb08701dcd0e
+  .codex/skills/split-chapter-pages/agents/openai.yaml:
+    mode: full
+    template: common/codex/skills/split-chapter-pages/agents/openai.yaml.j2
+    version: 0.1.0
+    sha256: 11aca33e29c8a66447102439ac0ad1b2e566ae80ce0022ddde0a9c031a33f27d
