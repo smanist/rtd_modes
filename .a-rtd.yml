@@ -63,6 +63,26 @@ state:
     template: common/gitignore.j2
     version: 0.1.0
     sha256: 328fef67ad7d7a7db3c74f2ff07ca3e935cb92def0fe321609ce8d409476d84b
+  .readthedocs.yaml:
+    mode: full
+    template: sphinx/readthedocs.yaml.j2
+    version: 0.1.0
+    sha256: 1a71dc18cf018bedae9efd69ed97bacbed246bfc9f6979b39d6eccbf0b5939d8
+  requirements.txt:
+    mode: full
+    template: sphinx/requirements.txt.j2
+    version: 0.1.0
+    sha256: 5498353152d9ada74331534082e454e878de0bbe6fadccd63b9b01997cdefddc
+  Makefile:
+    mode: full
+    template: sphinx/Makefile.j2
+    version: 0.1.0
+    sha256: 0d6dab9068e7227ef670f2ef59fb1174aafa96f4c7b2889e50395ab996d3b6b1
+  README.md:
+    mode: full
+    template: sphinx/README.md.j2
+    version: 0.1.0
+    sha256: 1fead92c439d3ff1c05500bc1d118cbf03003a8cf64a7a2feb20f252f19cd9fc
   scripts/kill-local-http-server:
     mode: full
     template: common/kill-local-http-server.j2
@@ -72,12 +92,12 @@ state:
     mode: block
     template: sphinx/conf.py.j2
     version: 0.1.0
-    sha256: 5a4f2712b1c8006cf2661a88cc9cb7fc915d7eddd3b8dd049f7e647783492c3a
+    sha256: 0217f69181f70c9bbf8ab3ed62226ddab4a81c1ed42d31941d10163312832269
   AGENTS.md:
     mode: block
     template: common/AGENTS.md.j2
     version: 0.1.0
-    sha256: 67c22193ccd3010a276431238be1738e7cb1d31929717e94d04b18f3eb463bda
+    sha256: 6849da773df80e56facc74b96c8e4eab45f6161616d56b1bc1c6e505e4f0c3ea
   .codex/skills/split-chapter-pages/SKILL.md:
     mode: full
     template: common/codex/skills/split-chapter-pages/SKILL.md.j2
