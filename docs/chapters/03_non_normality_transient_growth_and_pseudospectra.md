@@ -2,10 +2,29 @@
 
 Eigenvalues are a natural first summary of a linear system, but they do not
 always determine the behavior that matters most in applications. When the
-governing operator is non-normal, decaying eigenmodes can interfere
+governing operator is **non-normal**, decaying eigenmodes can interfere
 constructively, small perturbations can move eigenvalues substantially, and
 harmonic forcing can be strongly amplified even though every eigenvalue lies in
 the stable half-plane.
+
+## Motivating Example
+
+Below shows a nonlinear dynamical system of two states, with trajectories in
+2D state space.  The system is designed to have a stable equilibrium point
+at the origin, and a stable limit cycle around the origin.
+For one initial condition, the solid line is the true nonlinear
+trajectory, and the dashed line is the trajectory of the system linearized at
+the origin.
+
+When the initial condition is close to the origin, the nonlinear and
+linear trajectories match nearly perfectly.  However, a "concerning" trend is
+that the trajectory tends to move **away** from the origin.
+Indeed, if we move the initial condition a bit further, then the system moves to
+the limit cycle, instead of the origin - even if the initial condition is in a
+regime where linearization is valid and the linearized dynamics is table.
+
+This is a direct example showing that eigenvalues can be insufficient to determine
+the (local) stability of a system.
 
 :::{course-interactive}
 :data-example: chapter3-nonlinear-phase-plane
@@ -13,25 +32,9 @@ Interactive example loading...
 :::
 
 
-:::{course-interactive}
-:data-example: chapter3-transient-energy
-Interactive example loading...
-:::
+## Eigenvector Nonorthogonality and Modal Interference
 
-
-:::{course-interactive}
-:data-example: chapter3-pseudospectrum
-Interactive example loading...
-:::
-
-
-:::{course-interactive}
-:data-example: chapter3-initial-gain
-Interactive example loading...
-:::
-
-
-This chapter develops those ideas with a single hand-derivable example,
+To better understand the non-normality, we will use a single hand-derivable example,
 
 ```{math}
 :label: eq:chapter3-example-matrix
@@ -57,7 +60,6 @@ The eigenvalues of $A$ are fixed at $-1$ and $-2$, so the system is
 asymptotically stable for every $K>0$. The interesting question is what changes
 when the off-diagonal coupling $K$ becomes large.
 
-## Eigenvector Nonorthogonality and Modal Interference
 
 The right eigenvectors of $A$ may be chosen as
 
@@ -136,6 +138,28 @@ In other words, we need to differentiate two types of stability:
 
 + Linear stability: we are interested in the **minimum** critical parameter above which a specific initial condition of **infinitesimal** amplitude grows exponentially
 + Energy stability: we are interested in the **maximum** critical parameter below which a general initial condition of **finite** amplitude decays monotonically
+
+## visuals
+
+
+:::{course-interactive}
+:data-example: chapter3-transient-energy
+Interactive example loading...
+:::
+
+
+:::{course-interactive}
+:data-example: chapter3-pseudospectrum
+Interactive example loading...
+:::
+
+
+:::{course-interactive}
+:data-example: chapter3-initial-gain
+Interactive example loading...
+:::
+
+
 
 
 ## Normal and Non-normal Operators
