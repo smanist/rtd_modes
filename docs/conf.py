@@ -8,4 +8,5 @@ a_rtd_example_js_files = ["js/examples/chapter2-linear-autonomous.js", "js/examp
 extensions = ["a_rtd.sphinx_ext"]
 
 apply_defaults(globals())
+templates_path = ["_templates"]
 # a-rtd:end managed

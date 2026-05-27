@@ -5,6 +5,7 @@ Markdown, Sphinx cross-references, figures, and LaTeX equations.
 
 ```{toctree}
 :maxdepth: 1
+:numbered:
 :caption: Contents
 
 chapters/01_model_taxonomy
