@@ -288,6 +288,16 @@ The missing contribution is the static effect of the fast state. In this
 example, "slow" and "input-output important" are close, but they are not
 identical.
 
+The step-response comparison below keeps the same two-state structure. Set the
+fast decay rate to $10$ to recover the exact worked example, or vary it to see
+how increasing time-scale separation changes what the one-state ROMs preserve.
+
+:::{course-interactive}
+:data-example: chapter8-rom-step-comparison
+
+Interactive example loading...
+:::
+
 ## Krylov Subspaces and Moment Matching
 
 The transfer function viewpoint starts from
@@ -408,6 +418,16 @@ G_{\mathrm{k}}(0) = \frac{11}{10} = G(0).
 This ROM is not obtained by simply keeping the slow state. Instead, it keeps
 the state combination that matters to the transfer function near the expansion
 point. That is the characteristic strength of Krylov reduction.
+
+The frequency-response comparison below uses the same two-state family to show
+what modal truncation misses at low frequency and what moment matching restores
+near the expansion point $s_0 = 0$.
+
+:::{course-interactive}
+:data-example: chapter8-rom-frequency-response
+
+Interactive example loading...
+:::
 
 ## Controllability, Observability, and Balanced Truncation
 
