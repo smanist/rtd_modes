@@ -96,6 +96,17 @@ flat because $\Omega(a)=\omega_0$ for all amplitudes. For nonlinear systems it
 typically bends, which is one of the clearest signatures that the modal
 structure is no longer purely linear.
 
+The next interactive uses the approximation
+{eq}`eq:chapter13-duffing-frequency` directly. Vary the amplitude and cubic
+stiffness to see a flat linear backbone bend into hardening or softening
+behavior, then compare the selected point with the corresponding approximate
+phase-plane orbit.
+
+:::{course-interactive}
+:data-example: chapter13-duffing-backbone-explorer
+Interactive example loading...
+:::
+
 ## Rosenberg Nonlinear Normal Modes
 
 For conservative multi-degree-of-freedom systems, Rosenberg defined a
@@ -178,6 +189,17 @@ This relationship explains why linear modal analysis often works well at small
 amplitude but degrades as nonlinear effects strengthen. Linear modes are not
 wrong; they are the first local approximation to a more complicated invariant
 geometry.
+
+The next interactive keeps that geometry intentionally schematic. When the
+phase lag is zero, the motion collapses onto a one-dimensional graph
+$q_2 = r q_1 + \kappa q_1^3$, echoing Rosenberg-style synchrony and a curved
+modal family. As the lag grows, the path opens into a loop, showing why a
+single scalar coordinate no longer captures the motion.
+
+:::{course-interactive}
+:data-example: chapter13-rosenberg-synchrony-explorer
+Interactive example loading...
+:::
 
 ## Internal Resonance and Modal Interaction
 
