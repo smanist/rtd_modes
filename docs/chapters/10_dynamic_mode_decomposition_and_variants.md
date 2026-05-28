@@ -478,6 +478,17 @@ This example is instructive because it separates two effects cleanly:
 It also shows why DMD is often said to identify rotating and decaying coherent
 structures from data alone.
 
+Use the interactive below to vary the decay factor, rotation angle, and sample
+spacing in this worked example. The fit uses only
+$\mathbf{x}_0,\mathbf{x}_1,\mathbf{x}_2$, so the discrete eigenvalues and
+their continuous-time interpretation can be checked directly against the
+hand-derived formulas above.
+
+:::{course-interactive}
+:data-example: chapter10-rotation-decay-dmd
+Interactive example loading...
+:::
+
 ## Relationship Between POD and DMD
 
 Chapter 09 showed that POD provides an orthonormal basis
@@ -534,6 +545,16 @@ This is why DMD should be interpreted with the data pathway in mind:
 
 The common variants below are attempts to reduce this sensitivity while keeping
 the base DMD picture interpretable.
+
+The next interactive keeps the same rotation-decay family but fits a longer
+noisy snapshot window. Compare rank-1 and rank-2 truncation, inspect the
+one-step residual, and note how the inferred spectrum and rollout change when
+the data are perturbed.
+
+:::{course-interactive}
+:data-example: chapter10-rank-noise-dmd
+Interactive example loading...
+:::
 
 ## Forward-Backward DMD
 
