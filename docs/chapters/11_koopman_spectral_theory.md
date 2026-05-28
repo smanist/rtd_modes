@@ -204,6 +204,15 @@ Two lessons are immediate:
   rates inherited from the nonlinear observable transformation rather than from
   a different state equation.
 
+The next interactive keeps this scalar system fixed and asks how the observable
+view changes as one moves from $x$ to higher monomials $\varphi_m(x)=x^m$.
+
+:::{course-interactive}
+:data-example: chapter11-scalar-decay-eigenfunctions
+
+Interactive example loading...
+:::
+
 Near a stable equilibrium, this is the template behind nonlinear modal
 coordinates: one looks for observable coordinates that evolve linearly even
 when the state variables do not decouple linearly.
@@ -363,6 +372,16 @@ k \in \mathbb{Z}^d.
 
 Quasiperiodic motion therefore admits a countable set of Koopman frequencies
 assembled from integer combinations of the basic rotation frequencies.
+
+The next interactive compares the state-space rotation with the observable
+sequence $\varphi_m(\theta_k)=e^{i m \theta_k}$ so that the eigenvalue
+$\mu_m=e^{i m \omega}$ appears as a one-step multiplier in the complex plane.
+
+:::{course-interactive}
+:data-example: chapter11-circle-rotation-observables
+
+Interactive example loading...
+:::
 
 ## Continuous Spectrum and the Limits of Discrete Modal Expansions
 
