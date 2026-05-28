@@ -177,6 +177,17 @@ reach a target captured variance, look for a spectral gap in the singular
 values, or stop when the remaining singular values are comparable to a known
 noise floor.
 
+The interactive below perturbs the chapter's tiny snapshot family
+$\mathbf{X} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ a & b \end{bmatrix}$ so you
+can see how the singular values, leading POD modes, and rank-one energy
+capture change together as the third entry of each snapshot changes.
+
+:::{course-interactive}
+:data-example: chapter9-pod-spectrum-explorer
+
+Interactive example loading...
+:::
+
 ## Weighted Inner Products
 
 In discretized mechanics or partial differential equations, the Euclidean inner
@@ -395,6 +406,17 @@ This small example shows all of the main ideas at once:
 - the singular values rank their importance by captured energy;
 - the method of snapshots recovers the same modes from the smaller matrix
   $\mathbf{X}^\top \mathbf{X}$.
+
+The next interactive keeps the same tiny snapshot family and lets you choose
+the retained rank $r$ directly, compare $\mathbf{X}_r$ against the original
+snapshots, and track how the optimal Frobenius-norm error matches the
+discarded singular-value energy.
+
+:::{course-interactive}
+:data-example: chapter9-rank-reconstruction-explorer
+
+Interactive example loading...
+:::
 
 ## Energetic Modes Versus Dynamically Invariant Modes
 

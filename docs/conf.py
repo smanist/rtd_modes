@@ -4,7 +4,17 @@ from a_rtd.sphinx_ext import apply_defaults
 project = "Interactive Notes"
 author = "Course Staff"
 a_rtd_theme_description = "Modal Analysis of Nonlinear Dynamical Systems"
-a_rtd_example_js_files = ["js/examples/chapter2-linear-autonomous.js", "js/examples/chapter3-phase-planes.js", "js/examples/chapter3-initial-gain.js", "js/examples/chapter3-pseudospectrum.js", "js/examples/chapter3-transient-energy.js", "js/examples/chapter5-time-varying.js", "js/examples/demo-plot.js", "js/examples/python-demo.js"]
+a_rtd_example_js_files = [
+    "js/examples/chapter2-linear-autonomous.js",
+    "js/examples/chapter3-phase-planes.js",
+    "js/examples/chapter3-initial-gain.js",
+    "js/examples/chapter3-pseudospectrum.js",
+    "js/examples/chapter3-transient-energy.js",
+    "js/examples/chapter5-time-varying.js",
+    "js/examples/chapter9-pod-kl-snapshot-methods.js",
+    "js/examples/demo-plot.js",
+    "js/examples/python-demo.js",
+]
 extensions = ["a_rtd.sphinx_ext"]
 
 apply_defaults(globals())
