@@ -288,6 +288,16 @@ This one formula already separates the two viewpoints:
 - SPOD diagonalizes the statistical output $S_x(\omega)$ actually produced by
   that map and the forcing statistics.
 
+The first interactive keeps the forcing question separate from the statistical
+one. It shows how the leading resolvent gain varies with frequency and how the
+associated optimal forcing and response shapes tilt as the coupling asymmetry
+$\kappa$ changes.
+
+:::{course-interactive}
+:data-example: chapter12-resolvent-gain-directions
+Interactive example loading...
+:::
+
 ## Relationship Between SPOD and Resolvent Modes
 
 Write the resolvent SVD as
@@ -353,6 +363,15 @@ Two consequences follow:
   eigenvalues are reweighted by the forcing power in each forcing mode.
 - If the forcing covariance has off-diagonal terms in that basis, then the
   SPOD modes are rotated combinations of resolvent response modes.
+
+The second interactive holds the oscillator fixed and changes the forcing
+statistics. Under white forcing the leading SPOD mode sits on top of the
+leading resolvent response mode; under structured forcing the two can separate.
+
+:::{course-interactive}
+:data-example: chapter12-spod-resolvent-comparison
+Interactive example loading...
+:::
 
 This is why SPOD and resolvent analysis should not be treated as synonymous.
 SPOD is data-statistical. Resolvent analysis is input-output. In the present
