@@ -203,6 +203,18 @@ The example already shows why modal coordinates are useful. The symmetric and
 antisymmetric deformation patterns are dynamically independent in the undamped
 system even though the physical coordinates $q_1$ and $q_2$ are coupled.
 
+The next interactive starts from the symmetric case above and then perturbs the
+mass and grounding-stiffness ratios. At the symmetric point the textbook
+in-phase and out-of-phase shapes reappear exactly; away from it, the same
+generalized eigenproblem still produces mass-orthogonal modes, but their
+relative amplitudes shift.
+
+:::{course-interactive}
+:data-example: chapter4-mode-shape-explorer
+
+Interactive example loading...
+:::
+
 ## Modal Coordinates for Undamped Forced Motion
 
 Expand the displacement in modal form,
@@ -410,6 +422,17 @@ The symmetric input excites only the symmetric mode, and the antisymmetric
 input excites only the antisymmetric mode. Modal participation is therefore not
 just a property of the structure; it depends on how the structure is forced and
 measured.
+
+The next interactive keeps the same two-degree-of-freedom structure and sweeps
+harmonic forcing frequency under proportional damping. Compare symmetric,
+antisymmetric, and one-sided forcing to see how the participation factors
+$\Gamma_j$ decide which resonance appears in the physical and modal response.
+
+:::{course-interactive}
+:data-example: chapter4-modal-frf-explorer
+
+Interactive example loading...
+:::
 
 ## Modal Truncation and Its Limits
 
