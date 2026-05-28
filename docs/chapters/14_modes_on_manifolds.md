@@ -106,6 +106,18 @@ This is useful, but still local: large excursions can cross chart boundaries,
 encounter branch ambiguities in the logarithm, or make one tangent-space
 description inadequate.
 
+The geometric distinction is easiest to see on $S^1$. In the next explorer, the
+gray chord is the ambient Euclidean difference between two points on the circle,
+while the orange vector is the wrapped logarithm map in the tangent space at the
+chosen base point. The midpoint marker shows how an ambient average can leave
+the manifold.
+
+:::{course-interactive}
+:data-example: chapter14-tangent-versus-ambient
+
+Interactive example loading...
+:::
+
 ## Coordinate Dependence of Euclidean Modal Analysis
 
 A local linearization such as {eq}`eq:chapter14-local-linearization` is
@@ -217,7 +229,17 @@ tangent coordinate $\eta$. Globally, however, the state is periodic, the angle
 is only defined modulo $2\pi$, and there is no single Euclidean coordinate that
 represents the manifold without singular or redundant choices.
 
-## Takeaways
+The next explorer keeps that worked example on $S^1$ and compares the nonlinear
+circle trajectory with the local tangent linearization about either
+$\theta_\ast = 0$ or $\theta_\ast = \pi$.
+
+:::{course-interactive}
+:data-example: chapter14-circle-tangent-dynamics
+
+Interactive example loading...
+:::
+
+## Summary
 
 - Modal ideas on manifolds are usually local and live in tangent spaces or Lie
   algebra coordinates.
