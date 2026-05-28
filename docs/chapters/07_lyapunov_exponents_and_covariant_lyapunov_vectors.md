@@ -258,6 +258,12 @@ In this diagonal example, singular vectors, Gram-Schmidt vectors, and CLVs all
 coincide with the coordinate axes. That coincidence is special. It occurs here
 because the propagator never mixes the two tangent directions.
 
+:::{course-interactive}
+:data-example: chapter7-diagonal-ftle-accumulator
+
+Interactive example loading...
+:::
+
 ## QR-Based Computation of Lyapunov Exponents
 
 Directly multiplying propagators over long times is numerically unstable,
@@ -296,6 +302,12 @@ This algorithm computes growth rates attached to an orthonormalized basis, not
 yet the covariant directions themselves. The columns of $Q_k$ are often called
 backward Lyapunov vectors or Gram-Schmidt vectors because they are selected by
 growth from the past under forward integration.
+
+:::{course-interactive}
+:data-example: chapter7-qr-lyapunov-convergence
+
+Interactive example loading...
+:::
 
 ## Forward, Backward, and Covariant Vectors
 
