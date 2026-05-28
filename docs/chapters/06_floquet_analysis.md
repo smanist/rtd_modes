@@ -98,6 +98,17 @@ The basic stability test is discrete:
 This criterion follows directly from the fact that the period-to-period
 evolution is governed by repeated applications of $M_F$.
 
+Before returning to the worked oscillator, it is useful to separate the two
+pieces of multiplier data: distance from the unit circle and angular advance
+per period. The next interactive uses a representative conjugate pair
+$\rho_\pm = r e^{\pm i \theta}$ to show how the unit-circle test controls
+sampled growth and how the same pair sets the principal Floquet exponents.
+
+:::{course-interactive}
+:data-example: chapter6-floquet-multiplier-explorer
+Interactive example loading...
+:::
+
 ## Floquet Exponents and Floquet Form
 
 Floquet theory states that the state-transition matrix can be factored as
@@ -325,6 +336,17 @@ explicitly:
   outside the unit circle, so the zero solution is unstable.
 - If $|\mathrm{tr}(M_F)| = 2$, the system lies on a transition boundary between
   the two behaviors.
+
+The next interactive evaluates the exact matrix
+{eq}`eq:chapter6-piecewise-monodromy` for this piecewise-periodic oscillator.
+It shows both the one-period image of the unit circle and the sampled orbit
+$x_{m+1} = M_F x_m$, so the discrete Floquet map can be read directly in the
+phase plane.
+
+:::{course-interactive}
+:data-example: chapter6-piecewise-monodromy-map
+Interactive example loading...
+:::
 
 Even though each half-period is an undriven oscillator, alternating the
 stiffness can create net amplification over a full cycle. That is the same
